@@ -1,0 +1,235 @@
+<!doctype html>
+<!--
+  Diapason — canonical page skeleton (the content contract).
+  Every style page starts from this markup: same sections, same ids, same copy keys, same form contract.
+  You MAY change tags, add wrappers, decorative elements and extra style-specific copy (via copy.js),
+  reorder things INSIDE a section, and turn lists into any layout. You MUST NOT drop a copy key,
+  a section, a section id, or a form field. Paths here are ../ because this file lives in docs/.
+-->
+<html lang="ru" data-style="brutalism">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="style.metaTitle">Диапазон</title>
+  <meta name="description" data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3C/svg%3E">
+  <!-- boot: read the reveal origin left by the previous page (must stay inline, in <head>) -->
+  <script>(function(d){try{var o=JSON.parse(sessionStorage.getItem('diapason.vt')||'null');sessionStorage.removeItem('diapason.vt');if(o){d.documentElement.style.setProperty('--dz-vt-x',o.x+'px');d.documentElement.style.setProperty('--dz-vt-y',o.y+'px');}}catch(e){}})(document)</script>
+  <link rel="stylesheet" href="../assets/core/core.css">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> … style fonts … -->
+  <!-- <link rel="stylesheet" href="../assets/<style>/style.css"> -->
+</head>
+<body>
+  <a class="dz-skip" href="#main" data-i18n="a11y.skip"></a>
+
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand__name" data-i18n="brand.name"></span>
+      <span class="brand__descriptor" data-i18n="brand.descriptor"></span>
+    </a>
+    <nav class="site-nav" data-i18n-attr="aria-label:a11y.menu">
+      <ul>
+        <template data-i18n-list="nav.items">
+          <li><a href="{@href}" data-i18n="@label"></a></li>
+        </template>
+      </ul>
+    </nav>
+    <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang">
+      <button type="button" data-set-lang="ru" data-i18n="lang.ru" data-i18n-attr="aria-label:lang.ruFull"></button>
+      <button type="button" data-set-lang="en" data-i18n="lang.en" data-i18n-attr="aria-label:lang.enFull"></button>
+    </div>
+    <a class="header-cta" href="#contact" data-i18n="nav.cta"></a>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow"></p>
+      <h1 class="hero__title">
+        <span data-i18n="hero.title"></span>
+        <span class="hero__this" data-i18n="style.hero"></span>
+      </h1>
+      <p class="hero__lead" data-i18n="hero.lead"></p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact" data-i18n="hero.ctaPrimary"></a>
+        <a class="btn btn--secondary" href="#work" data-i18n="hero.ctaSecondary"></a>
+      </div>
+      <p class="hero__hint" data-i18n="hero.switchHint"></p>
+      <dl class="stats">
+        <template data-i18n-list="hero.stats">
+          <div class="stat"><dt data-i18n="@value"></dt><dd data-i18n="@label"></dd></div>
+        </template>
+      </dl>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="services-title">
+      <p class="section-num" data-i18n="services.num"></p>
+      <h2 id="services-title" data-i18n="services.title"></h2>
+      <p class="section-lead" data-i18n="services.lead"></p>
+      <ol class="services">
+        <template data-i18n-list="services.items">
+          <li class="service">
+            <span class="service__num">{nn}</span>
+            <h3 data-i18n="@title"></h3>
+            <p data-i18n="@text"></p>
+            <span class="service__meta" data-i18n="@meta"></span>
+          </li>
+        </template>
+      </ol>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" aria-labelledby="work-title">
+      <p class="section-num" data-i18n="work.num"></p>
+      <h2 id="work-title" data-i18n="work.title"></h2>
+      <p class="section-lead" data-i18n="work.lead"></p>
+      <ul class="cases">
+        <template data-i18n-list="work.items">
+          <li class="case" data-motif="{@motif}">
+            <div class="case__art" aria-hidden="true"><!-- draw the {@motif} motif here (SVG/CSS), in this style --></div>
+            <p class="case__type" data-i18n="@type"></p>
+            <h3 class="case__name" data-i18n="@name"></h3>
+            <p class="case__text" data-i18n="@text"></p>
+            <ul class="case__tags">
+              <template data-i18n-list="@tags"><li data-i18n="@"></li></template>
+            </ul>
+            <span class="case__year" data-i18n="work.year"></span>
+          </li>
+        </template>
+      </ul>
+      <p class="work__more" data-i18n="work.more"></p>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" aria-labelledby="process-title">
+      <p class="section-num" data-i18n="process.num"></p>
+      <h2 id="process-title" data-i18n="process.title"></h2>
+      <p class="section-lead" data-i18n="process.lead"></p>
+      <ol class="steps">
+        <template data-i18n-list="process.steps">
+          <li class="step">
+            <span class="step__num">{nn}</span>
+            <h3 data-i18n="@title"></h3>
+            <p data-i18n="@text"></p>
+            <span class="step__duration" data-i18n="@duration"></span>
+          </li>
+        </template>
+      </ol>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <p class="section-num" data-i18n="pricing.num"></p>
+      <h2 id="pricing-title" data-i18n="pricing.title"></h2>
+      <p class="section-lead" data-i18n="pricing.lead"></p>
+      <div class="plans">
+        <template data-i18n-list="pricing.plans">
+          <article class="plan" data-featured="{@featured}">
+            <p class="plan__badge" data-i18n="@badge"></p>
+            <h3 class="plan__name" data-i18n="@name"></h3>
+            <p class="plan__text" data-i18n="@text"></p>
+            <p class="plan__price" data-i18n="@price"></p>
+            <p class="plan__term" data-i18n="@term"></p>
+            <ul class="plan__features">
+              <template data-i18n-list="@features"><li data-i18n="@"></li></template>
+            </ul>
+            <a class="btn plan__cta" href="#contact" data-i18n="pricing.cta"></a>
+          </article>
+        </template>
+      </div>
+      <p class="pricing__note" data-i18n="pricing.note"></p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <p class="section-num" data-i18n="faq.num"></p>
+      <h2 id="faq-title" data-i18n="faq.title"></h2>
+      <p class="section-lead" data-i18n="faq.lead"></p>
+      <div class="faq">
+        <template data-i18n-list="faq.items">
+          <details class="faq__item" name="faq">
+            <summary data-i18n="@q"></summary>
+            <p data-i18n="@a"></p>
+          </details>
+        </template>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <p class="section-num" data-i18n="contact.num"></p>
+      <h2 id="contact-title" data-i18n="contact.title"></h2>
+      <p class="section-lead" data-i18n="contact.lead"></p>
+      <dl class="contact__details">
+        <template data-i18n-list="contact.details">
+          <div><dt data-i18n="@label"></dt><dd data-i18n="@value"></dd></div>
+        </template>
+      </dl>
+
+      <form class="form" data-dz-form novalidate>
+        <div class="field">
+          <label for="f-name" data-i18n="contact.form.name.label"></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" data-i18n-attr="placeholder:contact.form.name.placeholder">
+          <p id="f-name-err" class="field__error" data-error-for="name" hidden></p>
+        </div>
+        <div class="field">
+          <label for="f-contact" data-i18n="contact.form.contact.label"></label>
+          <input id="f-contact" name="contact" type="text" autocomplete="email" required aria-describedby="f-contact-err" data-i18n-attr="placeholder:contact.form.contact.placeholder">
+          <p id="f-contact-err" class="field__error" data-error-for="contact" hidden></p>
+        </div>
+        <fieldset class="field chips">
+          <legend data-i18n="contact.form.type.label"></legend>
+          <template data-i18n-list="contact.form.type.options">
+            <label class="chip"><input type="checkbox" name="type" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+          </template>
+        </fieldset>
+        <fieldset class="field chips">
+          <legend data-i18n="contact.form.budget.label"></legend>
+          <template data-i18n-list="contact.form.budget.options">
+            <label class="chip"><input type="radio" name="budget" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+          </template>
+        </fieldset>
+        <div class="field">
+          <label for="f-message" data-i18n="contact.form.message.label"></label>
+          <textarea id="f-message" name="message" rows="4" data-i18n-attr="placeholder:contact.form.message.placeholder"></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit"><span data-i18n="contact.form.submit"></span></button>
+        <p class="form__privacy" data-i18n="contact.form.privacy"></p>
+
+        <div class="form__success" data-form-success hidden role="status">
+          <p class="form__success-title" data-i18n="contact.form.success.title"></p>
+          <p data-i18n="contact.form.success.text" data-i18n-vars="{}"></p>
+          <p class="form__success-note" data-i18n="contact.form.success.note"></p>
+          <button type="button" class="btn" data-form-reset data-i18n="contact.form.success.again"></button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="brand__name" data-i18n="brand.name"></p>
+    <p data-i18n="brand.tagline"></p>
+    <section class="colophon" aria-labelledby="colophon-title">
+      <h2 id="colophon-title" data-i18n="footer.colophon"></h2>
+      <p><strong data-i18n="style.name"></strong> — <span data-i18n="style.desc"></span></p>
+      <p><span data-i18n="footer.fontsLabel"></span>: <span data-i18n="style.fonts"></span></p>
+      <p data-i18n="footer.paletteLabel"></p>
+      <ul class="swatches">
+        <template data-i18n-list="style.palette">
+          <li style="--swatch: {@hex}"><span class="swatch" aria-hidden="true"></span><span data-i18n="@name"></span> <code>{@hex}</code></li>
+        </template>
+      </ul>
+    </section>
+    <a href="index.html" data-dz-go="hub" data-i18n="footer.hub"></a>
+    <a href="#top" data-i18n="footer.toTop"></a>
+    <p data-i18n="footer.rights"></p>
+  </footer>
+
+  <script src="../assets/core/content.js"></script>
+  <!-- <script src="../assets/<style>/copy.js"></script>  (optional: style-specific extra copy) -->
+  <script src="../assets/core/core.js"></script>
+  <!-- <script src="../assets/<style>/script.js"></script> -->
+</body>
+</html>

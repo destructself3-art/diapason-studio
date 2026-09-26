@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="ru" data-style="retro-90s">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="style.metaTitle">Диапазон — ретро-90-е</title>
+  <meta name="description" data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#008080">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23008080'/%3E%3Crect x='1' y='2' width='14' height='13' fill='%23000'/%3E%3Crect x='1' y='2' width='13' height='12' fill='%23fff'/%3E%3Crect x='2' y='3' width='12' height='11' fill='%23C0C0C0'/%3E%3Crect x='2' y='3' width='12' height='3' fill='%23000080'/%3E%3Crect x='11' y='4' width='2' height='1' fill='%23fff'/%3E%3Crect x='3' y='7' width='10' height='6' fill='%23fff'/%3E%3Crect x='4' y='8' width='2' height='2' fill='%23FF0000'/%3E%3Crect x='6' y='8' width='2' height='2' fill='%23FFFF00'/%3E%3Crect x='8' y='8' width='2' height='2' fill='%2300FF00'/%3E%3Crect x='10' y='8' width='2' height='2' fill='%230000FF'/%3E%3Crect x='4' y='11' width='8' height='1' fill='%23808080'/%3E%3C/svg%3E">
+  <!-- boot: read the reveal origin left by the previous page (must stay inline, in <head>) -->
+  <script>(function(d){try{var o=JSON.parse(sessionStorage.getItem('diapason.vt')||'null');sessionStorage.removeItem('diapason.vt');if(o){d.documentElement.style.setProperty('--dz-vt-x',o.x+'px');d.documentElement.style.setProperty('--dz-vt-y',o.y+'px');}}catch(e){}})(document)</script>
+  <link rel="stylesheet" href="assets/core/core.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Press Start 2P = pixel labels. Tinos / Arimo / Comic Relief / Oswald / Cousine are metric-compatible
+       fallbacks for Times New Roman / Arial / Comic Sans MS / Impact / Courier: they only download on
+       devices that lack the Windows originals (phones), so the page still feels like 1997 everywhere. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Arimo:wght@400;700&family=Comic+Relief:wght@400;700&family=Oswald:wght@700&family=Cousine&display=swap">
+  <link rel="stylesheet" href="assets/retro-90s/style.css">
+</head>
+<body>
+  <a class="dz-skip" href="#main" data-i18n="a11y.skip"></a>
+
+  <!-- ================= TASKBAR (top — the dock owns the bottom) ================= -->
+  <header class="site-header taskbar">
+    <button class="start" id="start-btn" type="button" aria-expanded="false" aria-controls="startmenu" aria-haspopup="true">
+      <span class="ico ico--16" data-icon="logo" aria-hidden="true"></span>
+      <span class="start__label" data-i18n="x.retro-90s.taskbar.start"></span>
+    </button>
+    <span class="tb-sep" aria-hidden="true"></span>
+
+    <a class="brand tb-btn" href="#top" data-spy="top">
+      <span class="ico ico--16" data-icon="globe" aria-hidden="true"></span>
+      <span class="brand__name" data-i18n="brand.name"></span>
+      <span class="brand__descriptor" data-i18n="brand.descriptor"></span>
+    </a>
+
+    <nav class="site-nav" data-i18n-attr="aria-label:a11y.menu">
+      <ul>
+        <template data-i18n-list="nav.items">
+          <li><a class="tb-btn" href="{@href}" data-spy="{@href}"><span class="ico ico--16" data-icon-nav="{@href}" aria-hidden="true"></span><span data-i18n="@label"></span></a></li>
+        </template>
+      </ul>
+    </nav>
+
+    <a class="header-cta tb-btn" href="#contact">
+      <span class="ico ico--16" data-icon="mail" aria-hidden="true"></span>
+      <span data-i18n="nav.cta"></span>
+    </a>
+
+    <div class="tray">
+      <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" data-set-lang="ru" data-i18n="lang.ru" data-i18n-attr="aria-label:lang.ruFull"></button>
+        <button type="button" data-set-lang="en" data-i18n="lang.en" data-i18n-attr="aria-label:lang.enFull"></button>
+      </div>
+      <button class="tray__sound" type="button" aria-pressed="false" data-midi-toggle data-i18n-attr="aria-label:x.retro-90s.taskbar.sound;title:x.retro-90s.taskbar.sound">
+        <span class="ico ico--16" data-icon="speaker" aria-hidden="true"></span>
+      </button>
+      <span class="tray__clock" data-clock data-i18n-attr="title:x.retro-90s.taskbar.clock">12:00</span>
+    </div>
+
+    <!-- Start menu -->
+    <div class="startmenu" id="startmenu" hidden>
+      <div class="startmenu__banner" aria-hidden="true"><span data-i18n="brand.name"></span><b>97</b></div>
+      <ul class="startmenu__list" aria-labelledby="start-btn">
+        <template data-i18n-list="nav.items">
+          <li><a class="sm-item" href="{@href}"><span class="ico ico--32" data-icon-nav="{@href}" aria-hidden="true"></span><span data-i18n="@label"></span></a></li>
+        </template>
+        <li class="sm-sep" aria-hidden="true"></li>
+        <li><a class="sm-item sm-item--cta" href="#contact"><span class="ico ico--32" data-icon="mail" aria-hidden="true"></span><span data-i18n="nav.cta"></span></a></li>
+        <li><button class="sm-item" type="button" data-open="midi"><span class="ico ico--32" data-icon="cd" aria-hidden="true"></span><span data-i18n="x.retro-90s.start.midi"></span></button></li>
+        <li><button class="sm-item" type="button" data-open="tips"><span class="ico ico--32" data-icon="bulb" aria-hidden="true"></span><span data-i18n="x.retro-90s.start.tips"></span></button></li>
+        <li><button class="sm-item" type="button" data-open="readme"><span class="ico ico--32" data-icon="notepad" aria-hidden="true"></span><span data-i18n="x.retro-90s.start.readme"></span></button></li>
+        <li class="sm-sep" aria-hidden="true"></li>
+        <li><a class="sm-item" href="index.html" data-dz-go="hub"><span class="ico ico--32" data-icon="shutdown" aria-hidden="true"></span><span data-i18n="x.retro-90s.start.shutdown"></span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO: a desktop with a Netscape window ================= -->
+    <section id="top" class="hero desk" data-win-scope>
+      <ul class="desk__icons" data-i18n-attr="aria-label:x.retro-90s.desk.label">
+        <li><a class="dicon" href="#services"><span class="dicon__img" data-icon="computer" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.computer"></span></a></li>
+        <li><button class="dicon" type="button" data-open="midi"><span class="dicon__img" data-icon="cd" aria-hidden="true"></span><span class="dicon__label" data-i18n-html="x.retro-90s.desk.midi"></span></button></li>
+        <li><button class="dicon" type="button" data-open="tips"><span class="dicon__img" data-icon="bulb" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.tips"></span></button></li>
+        <li><button class="dicon" type="button" data-open="readme"><span class="dicon__img" data-icon="notepad" aria-hidden="true"></span><span class="dicon__label" data-i18n-html="x.retro-90s.desk.readme"></span></button></li>
+        <li><a class="dicon" href="#contact"><span class="dicon__img" data-icon="book" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.guestbook"></span></a></li>
+        <li><button class="dicon dicon--bin" type="button" data-open="bin"><span class="dicon__img" data-icon="bin" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.bin"></span></button></li>
+      </ul>
+
+      <!-- the browser window -->
+      <div class="win win--browser win--hero" data-win="browser" data-sec-win="top">
+        <div class="win__bar" aria-hidden="true">
+          <span class="ico ico--16" data-icon="globe"></span>
+          <span class="win__title" data-i18n="x.retro-90s.win.hero"></span>
+          <span class="win__btns"><span class="wbtn" data-joke="min" data-glyph="min"></span><span class="wbtn" data-joke="max" data-glyph="max"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+        </div>
+        <div class="win__menu" aria-hidden="true">
+          <template data-i18n-list="x.retro-90s.browser.menu"><span data-i18n="@"></span></template>
+        </div>
+        <div class="nsc__tools" aria-hidden="true">
+          <span class="nsc__tool"><span class="ico ico--24" data-icon="back"></span><span data-i18n="x.retro-90s.browser.back"></span></span>
+          <span class="nsc__tool is-off"><span class="ico ico--24" data-icon="fwd"></span><span data-i18n="x.retro-90s.browser.forward"></span></span>
+          <span class="nsc__tool"><span class="ico ico--24" data-icon="home"></span><span data-i18n="x.retro-90s.browser.home"></span></span>
+          <span class="nsc__tool"><span class="ico ico--24" data-icon="reload"></span><span data-i18n="x.retro-90s.browser.reload"></span></span>
+          <span class="nsc__tool nsc__tool--opt"><span class="ico ico--24" data-icon="paint"></span><span data-i18n="x.retro-90s.browser.images"></span></span>
+          <span class="nsc__tool nsc__tool--opt"><span class="ico ico--24" data-icon="printer"></span><span data-i18n="x.retro-90s.browser.print"></span></span>
+          <span class="nsc__tool nsc__tool--stop"><span class="ico ico--24" data-icon="stop"></span><span data-i18n="x.retro-90s.browser.stop"></span></span>
+          <span class="nsc__throbber"><span class="ico ico--32" data-icon="logo"></span><span class="nsc__comet"></span></span>
+        </div>
+        <div class="nsc__loc" aria-hidden="true">
+          <span class="nsc__loclabel" data-i18n="x.retro-90s.browser.location"></span>
+          <span class="field95 nsc__url">http://www.diapason.ru/~studio/index.htm</span>
+        </div>
+
+        <div class="win__body page page--stars">
+          <div class="nsc__vscroll" aria-hidden="true"><span class="vs-btn vs-btn--up"></span><span class="vs-track"><span class="vs-thumb" data-vs-thumb></span></span><span class="vs-btn vs-btn--down"></span></div>
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee__track"><span data-i18n="x.retro-90s.marquee"></span><span data-i18n="x.retro-90s.marquee"></span></div>
+          </div>
+
+          <div class="hero__inner">
+            <p class="hero__eyebrow"><span class="new" data-i18n="x.retro-90s.new"></span> <span data-i18n="hero.eyebrow"></span></p>
+            <h1 class="hero__title">
+              <span class="wa wa--one" data-i18n="hero.title"></span>
+              <span class="hero__this" data-i18n="style.hero"></span>
+              <span class="wa wa--two" aria-hidden="true"></span>
+            </h1>
+            <div class="rainbow-rule" aria-hidden="true"></div>
+            <p class="hero__lead" data-i18n="hero.lead"></p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#contact"><span class="ico ico--16" data-icon="mail" aria-hidden="true"></span><span data-i18n="hero.ctaPrimary"></span></a>
+              <a class="btn btn--secondary" href="#work"><span class="ico ico--16" data-icon="paint" aria-hidden="true"></span><span data-i18n="hero.ctaSecondary"></span></a>
+            </div>
+            <p class="hero__hint"><span class="hint-arrow" aria-hidden="true"></span><span data-i18n="hero.switchHint"></span></p>
+
+            <dl class="stats">
+              <template data-i18n-list="hero.stats">
+                <div class="stat"><dt data-i18n="@value"></dt><dd data-i18n="@label"></dd></div>
+              </template>
+            </dl>
+
+            <div class="counter" role="group" data-i18n-attr="aria-label:x.retro-90s.counter.label">
+              <span class="counter__label" data-i18n="x.retro-90s.counter.label"></span>
+              <span class="odo" data-odo aria-hidden="true"></span>
+              <span class="counter__value dz-sr-only" data-odo-text></span>
+              <span class="counter__since" data-i18n="x.retro-90s.counter.since"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="win__status nsc__status" aria-hidden="true">
+          <span class="sfield sfield--grow"><span class="ico ico--16" data-icon="globe"></span><span data-nsc-status data-i18n="x.retro-90s.browser.done"></span></span>
+          <span class="sfield sfield--bar"><span class="nsc__prog" data-nsc-prog></span></span>
+          <span class="sfield sfield--lock"><span class="ico ico--16" data-icon="key"></span></span>
+        </div>
+      </div>
+
+      <!-- decorative, draggable windows -->
+      <div class="win win--float win--midi" data-win="midi" data-float role="group" aria-labelledby="midi-title">
+        <div class="win__bar" data-drag tabindex="0">
+          <span class="ico ico--16" data-icon="cd" aria-hidden="true"></span>
+          <span class="win__title" id="midi-title" data-i18n="x.retro-90s.win.midi"></span>
+          <span class="win__btns">
+            <button class="wbtn" type="button" data-act="min" data-glyph="min" data-i18n-attr="aria-label:x.retro-90s.wm.min;title:x.retro-90s.wm.min"></button><button class="wbtn" type="button" data-act="max" data-glyph="max" data-i18n-attr="aria-label:x.retro-90s.wm.max;title:x.retro-90s.wm.max"></button><button class="wbtn" type="button" data-act="close" data-glyph="close" data-i18n-attr="aria-label:x.retro-90s.wm.close;title:x.retro-90s.wm.close"></button>
+          </span>
+        </div>
+        <div class="win__menu" aria-hidden="true">
+          <template data-i18n-list="x.retro-90s.midi.menu"><span data-i18n="@"></span></template>
+        </div>
+        <div class="midi">
+          <canvas class="midi__viz" width="96" height="24" aria-hidden="true"></canvas>
+          <div class="midi__scale" aria-hidden="true"><span class="midi__groove"></span><span class="midi__thumb" data-midi-thumb></span><span class="midi__ticks"></span></div>
+          <div class="midi__row">
+            <button class="btn95 btn95--icon midi__play" type="button" aria-pressed="false" data-midi-play data-i18n-attr="aria-label:x.retro-90s.midi.play;title:x.retro-90s.midi.play"><span class="glyph glyph--play" aria-hidden="true"></span></button>
+            <button class="btn95 btn95--icon midi__stop" type="button" data-midi-stop data-i18n-attr="aria-label:x.retro-90s.midi.stop;title:x.retro-90s.midi.stop"><span class="glyph glyph--stop" aria-hidden="true"></span></button>
+            <span class="midi__time field95" data-midi-time aria-hidden="true">00:00 / 00:14</span>
+          </div>
+          <label class="midi__vol">
+            <span data-i18n="x.retro-90s.midi.volume"></span>
+            <input type="range" min="0" max="100" value="70" data-midi-vol>
+          </label>
+        </div>
+        <div class="win__status" aria-live="polite">
+          <span class="sfield sfield--grow" data-midi-state data-i18n="x.retro-90s.midi.stopped"></span>
+          <span class="sfield">diapason.mid</span>
+        </div>
+      </div>
+
+      <div class="win win--float win--tips" data-win="tips" data-float role="group" aria-labelledby="tips-title">
+        <div class="win__bar" data-drag tabindex="0">
+          <span class="ico ico--16" data-icon="bulb" aria-hidden="true"></span>
+          <span class="win__title" id="tips-title" data-i18n="x.retro-90s.win.tips"></span>
+          <span class="win__btns">
+            <button class="wbtn" type="button" data-act="min" data-glyph="min" data-i18n-attr="aria-label:x.retro-90s.wm.min;title:x.retro-90s.wm.min"></button><button class="wbtn" type="button" data-act="max" data-glyph="max" data-i18n-attr="aria-label:x.retro-90s.wm.max;title:x.retro-90s.wm.max"></button><button class="wbtn" type="button" data-act="close" data-glyph="close" data-i18n-attr="aria-label:x.retro-90s.wm.close;title:x.retro-90s.wm.close"></button>
+          </span>
+        </div>
+        <div class="tips">
+          <p class="tips__welcome"><span data-i18n="x.retro-90s.tips.welcome"></span> <b data-i18n="brand.name"></b><i>97</i></p>
+          <div class="tips__grid">
+            <div class="tips__box field95">
+              <span class="ico ico--32" data-icon="bulb" aria-hidden="true"></span>
+              <p class="tips__title" data-i18n="x.retro-90s.tips.title"></p>
+              <p class="tips__text" data-tip aria-live="polite"></p>
+            </div>
+            <div class="tips__btns">
+              <button class="btn95" type="button" data-tip-next><span data-i18n="x.retro-90s.tips.next"></span></button>
+              <button class="btn95 btn95--default" type="button" data-act="close"><span data-i18n="x.retro-90s.tips.close"></span></button>
+            </div>
+          </div>
+          <label class="check95 tips__startup"><input type="checkbox" data-tip-startup checked><span data-i18n="x.retro-90s.tips.startup"></span></label>
+        </div>
+      </div>
+
+      <div class="win win--float win--readme" data-win="readme" data-float role="group" aria-labelledby="readme-title">
+        <div class="win__bar" data-drag tabindex="0">
+          <span class="ico ico--16" data-icon="notepad" aria-hidden="true"></span>
+          <span class="win__title" id="readme-title" data-i18n="x.retro-90s.win.readme"></span>
+          <span class="win__btns">
+            <button class="wbtn" type="button" data-act="min" data-glyph="min" data-i18n-attr="aria-label:x.retro-90s.wm.min;title:x.retro-90s.wm.min"></button><button class="wbtn" type="button" data-act="max" data-glyph="max" data-i18n-attr="aria-label:x.retro-90s.wm.max;title:x.retro-90s.wm.max"></button><button class="wbtn" type="button" data-act="close" data-glyph="close" data-i18n-attr="aria-label:x.retro-90s.wm.close;title:x.retro-90s.wm.close"></button>
+          </span>
+        </div>
+        <div class="win__menu" aria-hidden="true">
+          <template data-i18n-list="x.retro-90s.readme.menu"><span data-i18n="@"></span></template>
+        </div>
+        <div class="notepad field95">
+          <template data-i18n-list="x.retro-90s.readme.lines"><p data-i18n="@"></p></template>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES: Control Panel ================= -->
+    <section id="services" class="win win--app sec" aria-labelledby="services-title" data-sec-win="services">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="cpl"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.services"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="min" data-glyph="min"></span><span class="wbtn" data-joke="max" data-glyph="max"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="win__menu" aria-hidden="true">
+        <template data-i18n-list="x.retro-90s.explorer.menu"><span data-i18n="@"></span></template>
+      </div>
+      <div class="win__body pane">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="services.num"></p>
+          <h2 id="services-title" data-i18n="services.title"></h2>
+          <p class="section-lead" data-i18n="services.lead"></p>
+          <span class="sec-head__icon ico ico--64" data-icon="cpl" aria-hidden="true"></span>
+        </header>
+        <ol class="services">
+          <template data-i18n-list="services.items">
+            <li class="service">
+              <span class="service__icon ico ico--48" data-icon-svc="{i}" aria-hidden="true"></span>
+              <div class="service__body">
+                <span class="service__num">{nn}</span>
+                <h3 data-i18n="@title"></h3>
+                <p data-i18n="@text"></p>
+                <span class="service__meta" data-i18n="@meta"></span>
+              </div>
+            </li>
+          </template>
+        </ol>
+      </div>
+      <div class="win__status" aria-hidden="true">
+        <span class="sfield sfield--grow" data-i18n="x.retro-90s.explorer.objects" data-i18n-vars='{"n":6}'></span>
+        <span class="sfield"><span class="ico ico--16" data-icon="computer"></span><span data-i18n="x.retro-90s.explorer.computer"></span></span>
+      </div>
+    </section>
+
+    <!-- ================= WORK: portfolio page ================= -->
+    <section id="work" class="win win--browser sec" aria-labelledby="work-title" data-sec-win="work">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="globe"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.work"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="min" data-glyph="min"></span><span class="wbtn" data-joke="max" data-glyph="max"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="nsc__loc" aria-hidden="true">
+        <span class="nsc__loclabel" data-i18n="x.retro-90s.browser.location"></span>
+        <span class="field95 nsc__url">http://www.diapason.ru/~studio/portfolio.htm</span>
+      </div>
+      <div class="win__body page">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="work.num"></p>
+          <h2 id="work-title" data-i18n="work.title"></h2>
+          <p class="section-lead" data-i18n="work.lead"></p>
+          <span class="sec-head__icon ico ico--64" data-icon="paint" aria-hidden="true"></span>
+        </header>
+        <ul class="cases">
+          <template data-i18n-list="work.items">
+            <li class="case" data-motif="{@motif}">
+              <div class="case__frame">
+                <div class="case__framebar" aria-hidden="true"><span class="ico ico--16" data-icon="paint"></span><span class="case__file">{@motif}.bmp</span><span class="case__minis"><span></span><span></span><span></span></span></div>
+                <div class="case__art" aria-hidden="true"></div>
+                <div class="case__framestatus"><span class="case__year" data-i18n="work.year"></span><span aria-hidden="true">128×80 · 16</span></div>
+              </div>
+              <p class="case__type" data-i18n="@type"></p>
+              <h3 class="case__name" data-i18n="@name"></h3>
+              <p class="case__text" data-i18n="@text"></p>
+              <ul class="case__tags">
+                <template data-i18n-list="@tags"><li data-i18n="@"></li></template>
+              </ul>
+            </li>
+          </template>
+        </ul>
+        <p class="work__more"><span class="new" data-i18n="x.retro-90s.new"></span> <span data-i18n="work.more"></span></p>
+      </div>
+      <div class="win__status" aria-hidden="true">
+        <span class="sfield sfield--grow"><span class="ico ico--16" data-icon="globe"></span><span data-i18n="x.retro-90s.browser.done"></span></span>
+        <span class="sfield sfield--lock"><span class="ico ico--16" data-icon="key"></span></span>
+      </div>
+    </section>
+
+    <!-- desktop shortcuts living in the gutters (wide screens only) -->
+    <ul class="desk-shortcuts desk-shortcuts--process" data-i18n-attr="aria-label:x.retro-90s.desk.label">
+      <li><a class="dicon" href="index.html" data-dz-go="hub"><span class="dicon__img" data-icon="network" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.network"></span></a></li>
+      <li><a class="dicon" href="#work"><span class="dicon__img" data-icon="briefcase" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.briefcase"></span></a></li>
+    </ul>
+
+    <!-- ================= PROCESS: Setup Wizard ================= -->
+    <section id="process" class="win win--dialog sec" aria-labelledby="process-title" data-sec-win="process">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="floppy"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.process"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="help" data-glyph="help"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="win__body wiz">
+        <div class="wiz__art" aria-hidden="true"><canvas class="wiz__canvas" width="64" height="160"></canvas></div>
+        <div class="wiz__main">
+          <header class="sec-head">
+            <p class="section-num" data-i18n="process.num"></p>
+            <h2 id="process-title" data-i18n="process.title"></h2>
+            <p class="section-lead" data-i18n="process.lead"></p>
+          </header>
+          <ol class="steps">
+            <template data-i18n-list="process.steps">
+              <li class="step">
+                <span class="step__mark" aria-hidden="true"></span>
+                <span class="step__num">{nn}</span>
+                <h3 data-i18n="@title"></h3>
+                <p data-i18n="@text"></p>
+                <span class="step__duration" data-i18n="@duration"></span>
+              </li>
+            </template>
+          </ol>
+          <div class="wiz__progress">
+            <p class="wiz__label" data-wiz-label aria-live="polite"></p>
+            <div class="bar95" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="process-title" data-wiz-bar><span class="bar95__fill" data-wiz-fill></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="wiz__buttons">
+        <button class="btn95" type="button" data-wiz="back"><span data-i18n="x.retro-90s.wizard.back"></span></button>
+        <button class="btn95 btn95--default" type="button" data-wiz="next"><span data-wiz-next data-i18n="x.retro-90s.wizard.next"></span></button>
+        <button class="btn95" type="button" disabled><span data-i18n="x.retro-90s.wizard.cancel"></span></button>
+      </div>
+    </section>
+
+    <!-- ================= PRICING: beveled HTML table ================= -->
+    <section id="pricing" class="win win--browser sec" aria-labelledby="pricing-title" data-sec-win="pricing">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="globe"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.pricing"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="min" data-glyph="min"></span><span class="wbtn" data-joke="max" data-glyph="max"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="nsc__loc" aria-hidden="true">
+        <span class="nsc__loclabel" data-i18n="x.retro-90s.browser.location"></span>
+        <span class="field95 nsc__url">http://www.diapason.ru/~studio/price.htm</span>
+      </div>
+      <div class="win__body page page--price">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="pricing.num"></p>
+          <h2 id="pricing-title" data-i18n="pricing.title"></h2>
+          <p class="section-lead" data-i18n="pricing.lead"></p>
+          <span class="sec-head__icon ico ico--64" data-icon="tag" aria-hidden="true"></span>
+        </header>
+        <div class="plans">
+          <template data-i18n-list="pricing.plans">
+            <article class="plan" data-featured="{@featured}">
+              <p class="plan__badge" data-i18n="@badge"></p>
+              <h3 class="plan__name" data-i18n="@name"></h3>
+              <p class="plan__text" data-i18n="@text"></p>
+              <p class="plan__price" data-i18n="@price"></p>
+              <p class="plan__term" data-i18n="@term"></p>
+              <ul class="plan__features">
+                <template data-i18n-list="@features"><li data-i18n="@"></li></template>
+              </ul>
+              <div class="plan__cell plan__cell--cta"><a class="btn plan__cta" href="#contact" data-i18n="pricing.cta"></a></div>
+            </article>
+          </template>
+        </div>
+        <p class="pricing__note"><span class="ico ico--16" data-icon="info" aria-hidden="true"></span><span data-i18n="pricing.note"></span></p>
+      </div>
+      <div class="win__status" aria-hidden="true">
+        <span class="sfield sfield--grow"><span class="ico ico--16" data-icon="globe"></span><span data-i18n="x.retro-90s.browser.done"></span></span>
+        <span class="sfield sfield--lock"><span class="ico ico--16" data-icon="key"></span></span>
+      </div>
+    </section>
+
+    <ul class="desk-shortcuts desk-shortcuts--faq" data-i18n-attr="aria-label:x.retro-90s.desk.label">
+      <li><a class="dicon" href="#pricing"><span class="dicon__img" data-icon="docs" aria-hidden="true"></span><span class="dicon__label" data-i18n="x.retro-90s.desk.docs"></span></a></li>
+    </ul>
+
+    <!-- ================= FAQ: Explorer tree ================= -->
+    <section id="faq" class="win win--app sec" aria-labelledby="faq-title" data-sec-win="faq">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="folderopen"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.faq"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="min" data-glyph="min"></span><span class="wbtn" data-joke="max" data-glyph="max"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="win__menu" aria-hidden="true">
+        <template data-i18n-list="x.retro-90s.explorer.menu"><span data-i18n="@"></span></template>
+      </div>
+      <div class="win__body pane">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="faq.num"></p>
+          <h2 id="faq-title" data-i18n="faq.title"></h2>
+          <p class="section-lead" data-i18n="faq.lead"></p>
+          <span class="sec-head__icon ico ico--64" data-icon="help" aria-hidden="true"></span>
+        </header>
+        <div class="explorer">
+          <p class="explorer__root" aria-hidden="true"><span class="ico ico--16" data-icon="computer"></span><span data-i18n="x.retro-90s.faq.root"></span></p>
+          <div class="faq">
+            <template data-i18n-list="faq.items">
+              <details class="faq__item" name="faq">
+                <summary><span class="tree-box" aria-hidden="true"></span><span class="tree-ico" aria-hidden="true"></span><span class="faq__q" data-i18n="@q"></span></summary>
+                <div class="faq__pane">
+                  <p class="faq__a" data-i18n="@a"></p>
+                  <p class="faq__props" aria-hidden="true"><span data-i18n="x.retro-90s.faq.propsType"></span><span data-i18n="x.retro-90s.faq.propsSize"></span><span data-i18n="x.retro-90s.faq.propsDate"></span></p>
+                </div>
+              </details>
+            </template>
+            <p class="faq__empty" aria-hidden="true"><span class="ico ico--32" data-icon="folderopen"></span><span data-i18n="x.retro-90s.faq.empty"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="win__status" aria-hidden="true">
+        <span class="sfield sfield--grow" data-i18n="x.retro-90s.explorer.objects" data-i18n-vars='{"n":6}'></span>
+        <span class="sfield" data-faq-status></span>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT: the guestbook ================= -->
+    <section id="contact" class="win win--browser sec" aria-labelledby="contact-title" data-sec-win="contact">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="book"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.contact"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="min" data-glyph="min"></span><span class="wbtn" data-joke="max" data-glyph="max"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="nsc__loc" aria-hidden="true">
+        <span class="nsc__loclabel" data-i18n="x.retro-90s.browser.location"></span>
+        <span class="field95 nsc__url">http://www.diapason.ru/cgi-bin/guestbook.cgi</span>
+      </div>
+      <div class="win__body page page--guest">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="contact.num"></p>
+          <h2 id="contact-title" data-i18n="contact.title"></h2>
+          <p class="section-lead" data-i18n="contact.lead"></p>
+          <span class="sec-head__icon ico ico--64" data-icon="book" aria-hidden="true"></span>
+        </header>
+
+        <div class="guest">
+          <div class="guest__main">
+            <p class="guest__sign" aria-hidden="true"><span class="ico ico--32" data-icon="quill"></span><span data-i18n="x.retro-90s.guest.sign"></span><span class="ico ico--32" data-icon="quill"></span></p>
+
+            <form class="form" data-dz-form novalidate>
+              <div class="form__grid">
+                <div class="field">
+                  <label for="f-name" data-i18n="contact.form.name.label"></label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" data-i18n-attr="placeholder:contact.form.name.placeholder">
+                  <p id="f-name-err" class="field__error" data-error-for="name" hidden></p>
+                </div>
+                <div class="field">
+                  <label for="f-contact" data-i18n="contact.form.contact.label"></label>
+                  <input id="f-contact" name="contact" type="text" autocomplete="email" required aria-describedby="f-contact-err" data-i18n-attr="placeholder:contact.form.contact.placeholder">
+                  <p id="f-contact-err" class="field__error" data-error-for="contact" hidden></p>
+                </div>
+              </div>
+              <fieldset class="field chips chips--type">
+                <legend data-i18n="contact.form.type.label"></legend>
+                <template data-i18n-list="contact.form.type.options">
+                  <label class="chip check95"><input type="checkbox" name="type" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+                </template>
+              </fieldset>
+              <fieldset class="field chips chips--budget">
+                <legend data-i18n="contact.form.budget.label"></legend>
+                <template data-i18n-list="contact.form.budget.options">
+                  <label class="chip radio95"><input type="radio" name="budget" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+                </template>
+              </fieldset>
+              <div class="field">
+                <label for="f-message" data-i18n="contact.form.message.label"></label>
+                <textarea id="f-message" name="message" rows="4" data-i18n-attr="placeholder:contact.form.message.placeholder"></textarea>
+              </div>
+              <div class="form__submit">
+                <button class="btn btn--primary" type="submit"><span class="ico ico--16" data-icon="mail" aria-hidden="true"></span><span data-i18n="contact.form.submit"></span></button>
+                <p class="form__privacy" data-i18n="contact.form.privacy"></p>
+              </div>
+
+              <!-- sending: the Win95 "copying files" dialog -->
+              <div class="sendbox" aria-hidden="true">
+                <div class="win win--dialog sendbox__win is-active">
+                  <div class="win__bar"><span class="ico ico--16" data-icon="mail"></span><span class="win__title" data-i18n="x.retro-90s.win.send"></span></div>
+                  <div class="sendbox__body">
+                    <div class="sendbox__anim"><span class="ico ico--32" data-icon="folderopen"></span><span class="sendbox__doc ico ico--16" data-icon="doc"></span><span class="ico ico--32" data-icon="folder"></span></div>
+                    <p data-i18n="x.retro-90s.guest.sending"></p>
+                    <p class="sendbox__small" data-i18n="x.retro-90s.guest.to"></p>
+                    <div class="bar95"><span class="bar95__fill sendbox__fill"></span></div>
+                    <p class="sendbox__small" data-i18n="x.retro-90s.guest.left"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__success" data-form-success hidden role="status">
+                <div class="win win--dialog success__win is-active">
+                  <div class="win__bar"><span class="ico ico--16" data-icon="book" aria-hidden="true"></span><span class="win__title" data-i18n="x.retro-90s.win.success"></span></div>
+                  <div class="success__body">
+                    <span class="ico ico--48" data-icon="info" aria-hidden="true"></span>
+                    <div>
+                      <p class="form__success-title" data-i18n="contact.form.success.title"></p>
+                      <p data-i18n="contact.form.success.text" data-i18n-vars="{}"></p>
+                      <p class="form__success-note" data-i18n="contact.form.success.note"></p>
+                    </div>
+                  </div>
+                  <div class="success__btns"><button type="button" class="btn btn95--default" data-form-reset data-i18n="contact.form.success.again"></button></div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="guest__side">
+            <div class="card95">
+              <p class="card95__title"><span class="ico ico--16" data-icon="mail" aria-hidden="true"></span><span data-i18n="x.retro-90s.guest.card"></span></p>
+              <dl class="contact__details">
+                <template data-i18n-list="contact.details">
+                  <div><dt data-i18n="@label"></dt><dd data-i18n="@value"></dd></div>
+                </template>
+              </dl>
+            </div>
+            <div class="entries">
+              <p class="entries__title" data-i18n="x.retro-90s.guest.entriesTitle"></p>
+              <template data-i18n-list="x.retro-90s.guest.entries">
+                <div class="entry">
+                  <p class="entry__who"><b data-i18n="@who"></b> <span data-i18n="@when"></span></p>
+                  <p class="entry__text" data-i18n="@text"></p>
+                </div>
+              </template>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div class="win__status" aria-hidden="true">
+        <span class="sfield sfield--grow"><span class="ico ico--16" data-icon="globe"></span><span data-i18n="x.retro-90s.browser.done"></span></span>
+        <span class="sfield sfield--lock"><span class="ico ico--16" data-icon="key"></span></span>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER: under construction + About dialog ================= -->
+  <footer class="site-footer">
+    <div class="construction">
+      <span class="digger" aria-hidden="true"><span class="ico" data-icon="digger"></span><span class="ico" data-icon="digger2"></span></span>
+      <p><b data-i18n="x.retro-90s.construction.title"></b> <span data-i18n="x.retro-90s.construction.text"></span></p>
+      <span class="digger digger--flip" aria-hidden="true"><span class="ico" data-icon="digger"></span><span class="ico" data-icon="digger2"></span></span>
+    </div>
+
+    <div class="win win--dialog win--about">
+      <div class="win__bar" aria-hidden="true">
+        <span class="ico ico--16" data-icon="logo"></span>
+        <span class="win__title" data-i18n="x.retro-90s.win.about"></span>
+        <span class="win__btns"><span class="wbtn" data-joke="help" data-glyph="help"></span><span class="wbtn" data-joke="close" data-glyph="close"></span></span>
+      </div>
+      <div class="about">
+        <div class="about__brand">
+          <span class="about__logo ico" data-icon="logo" aria-hidden="true"></span>
+          <p class="brand__name" data-i18n="brand.name"></p>
+          <p class="about__tagline" data-i18n="brand.tagline"></p>
+          <p class="about__small" data-i18n="x.retro-90s.about.version"></p>
+          <p class="about__small" data-i18n="x.retro-90s.about.license"></p>
+        </div>
+
+        <section class="colophon" aria-labelledby="colophon-title">
+          <h2 id="colophon-title" data-i18n="footer.colophon"></h2>
+          <p><strong data-i18n="style.name"></strong> — <span data-i18n="style.desc"></span></p>
+          <p><span data-i18n="footer.fontsLabel"></span>: <span data-i18n="style.fonts"></span></p>
+          <p class="colophon__pal" data-i18n="footer.paletteLabel"></p>
+          <ul class="swatches">
+            <template data-i18n-list="style.palette">
+              <li style="--swatch: {@hex}"><span class="swatch" aria-hidden="true"></span><span data-i18n="@name"></span> <code>{@hex}</code></li>
+            </template>
+          </ul>
+        </section>
+
+        <div class="about__side">
+          <div class="webring">
+            <p class="webring__title"><span class="ico ico--16" data-icon="globe" aria-hidden="true"></span><span data-i18n="x.retro-90s.ring.title"></span></p>
+            <p class="webring__text" data-i18n="x.retro-90s.ring.text"></p>
+            <div class="webring__links">
+              <a class="btn95" href="glassmorphism.html" data-dz-go="glassmorphism">« <span data-i18n="x.retro-90s.ring.prev"></span> <span data-i18n="styles.glassmorphism.short"></span></a>
+              <a class="btn95" href="index.html" data-dz-go="minimalism" data-ring-random><span data-i18n="x.retro-90s.ring.random"></span></a>
+              <a class="btn95" href="minimalism.html" data-dz-go="minimalism"><span data-i18n="x.retro-90s.ring.next"></span> <span data-i18n="styles.minimalism.short"></span> »</a>
+            </div>
+          </div>
+          <ul class="badges">
+            <template data-i18n-list="x.retro-90s.badges">
+              <li class="badge badge--{i}"><span data-i18n="@"></span></li>
+            </template>
+          </ul>
+        </div>
+      </div>
+      <div class="about__foot">
+        <p class="about__rights" data-i18n="footer.rights"></p>
+        <div class="about__links">
+          <a class="btn95" href="index.html" data-dz-go="hub"><span class="ico ico--16" data-icon="shutdown" aria-hidden="true"></span><span data-i18n="footer.hub"></span></a>
+          <a class="btn95 btn95--default" href="#top"><span data-i18n="footer.toTop"></span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast95" data-toast role="status" aria-live="polite" hidden></div>
+  <canvas class="sparkles" aria-hidden="true"></canvas>
+
+  <script src="assets/core/content.js"></script>
+  <script src="assets/retro-90s/copy.js"></script>
+  <script src="assets/core/core.js"></script>
+  <script src="assets/retro-90s/script.js"></script>
+</body>
+</html>

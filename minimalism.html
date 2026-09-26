@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ru" data-style="minimalism">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="style.metaTitle">Диапазон — минимализм</title>
+  <meta name="description" data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#F4F3EF">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F4F3EF'/%3E%3Cpath d='M5 21.5H19' stroke='%23141414' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='21.5' r='3.5' fill='%23FF4D1A'/%3E%3C/svg%3E">
+  <!-- boot: read the reveal origin left by the previous page (must stay inline, in <head>) -->
+  <script>(function(d){try{var o=JSON.parse(sessionStorage.getItem('diapason.vt')||'null');sessionStorage.removeItem('diapason.vt');if(o){d.documentElement.style.setProperty('--dz-vt-x',o.x+'px');d.documentElement.style.setProperty('--dz-vt-y',o.y+'px');}}catch(e){}})(document)</script>
+  <link rel="stylesheet" href="assets/core/core.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..600&amp;display=swap">
+  <link rel="stylesheet" href="assets/minimalism/style.css">
+</head>
+<body>
+  <a class="dz-skip" href="#main" data-i18n="a11y.skip"></a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" data-magnetic>
+      <svg class="brand__mark" viewBox="0 0 26 12" width="26" height="12" aria-hidden="true" focusable="false"><path d="M0 6.5H17"/><circle cx="21.5" cy="6.5" r="3"/></svg>
+      <span class="brand__name" data-i18n="brand.name"></span>
+      <span class="brand__descriptor" data-i18n="brand.descriptor"></span>
+    </a>
+
+    <div class="site-menu" id="site-menu">
+      <nav class="site-nav" data-i18n-attr="aria-label:a11y.menu">
+        <ul>
+          <template data-i18n-list="nav.items">
+            <li><a href="{@href}" data-magnetic><span class="site-nav__num" aria-hidden="true">{nn}</span><span class="site-nav__label" data-i18n="@label"></span></a></li>
+          </template>
+        </ul>
+      </nav>
+      <a class="header-cta" href="#contact" data-magnetic><span data-i18n="nav.cta"></span><svg class="arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+    </div>
+
+    <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang">
+      <button type="button" data-set-lang="ru" data-i18n="lang.ru" data-i18n-attr="aria-label:lang.ruFull" data-magnetic></button>
+      <button type="button" data-set-lang="en" data-i18n="lang.en" data-i18n-attr="aria-label:lang.enFull" data-magnetic></button>
+    </div>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-btn__label" data-i18n="a11y.menu"></span>
+      <span class="menu-btn__icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero__meta">
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow"></p>
+          <p class="hero__index" data-i18n="x.minimalism.index"></p>
+          <p class="hero__hint" data-i18n="hero.switchHint"></p>
+          <p class="hero__hint hero__hint--touch" data-i18n="x.minimalism.hintTouch"></p>
+        </div>
+
+        <h1 class="hero__title" id="hero-title" data-split>
+          <span class="hero__line" data-i18n="hero.title"></span>
+          <span class="hero__this" data-i18n="style.hero" data-stop="start"></span>
+        </h1>
+
+        <div class="hero__foot">
+          <div class="hero__intro">
+            <p class="hero__lead" data-i18n="hero.lead"></p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#contact" data-magnetic><span data-i18n="hero.ctaPrimary"></span><svg class="arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+              <a class="btn btn--secondary" href="#work" data-magnetic><span data-i18n="hero.ctaSecondary"></span></a>
+            </div>
+          </div>
+          <dl class="stats">
+            <template data-i18n-list="hero.stats">
+              <div class="stat"><dt data-i18n="@value"></dt><dd data-i18n="@label"></dd></div>
+            </template>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services-sec" aria-labelledby="services-title">
+      <div class="wrap svc">
+        <div class="svc__aside">
+          <div class="svc__sticky">
+            <p class="section-num" data-i18n="services.num"></p>
+            <h2 id="services-title" data-i18n="services.title" data-split></h2>
+            <p class="section-lead" data-i18n="services.lead"></p>
+          </div>
+        </div>
+        <ol class="services">
+          <template data-i18n-list="services.items">
+            <li class="service">
+              <span class="service__num">{nn}</span>
+              <h3 data-i18n="@title"></h3>
+              <p data-i18n="@text"></p>
+              <span class="service__meta" data-i18n="@meta"></span>
+            </li>
+          </template>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="work.num"></p>
+          <h2 id="work-title" data-i18n="work.title" data-split></h2>
+          <p class="section-lead" data-i18n="work.lead"></p>
+        </header>
+        <ul class="cases">
+          <template data-i18n-list="work.items">
+            <li class="case" data-motif="{@motif}">
+              <div class="case__art" aria-hidden="true"></div>
+              <div class="case__cap">
+                <span class="case__fig" data-i18n="x.minimalism.fig.{@motif}"></span>
+                <span class="case__year" data-i18n="work.year"></span>
+              </div>
+              <p class="case__type" data-i18n="@type"></p>
+              <h3 class="case__name" data-i18n="@name"></h3>
+              <p class="case__text" data-i18n="@text"></p>
+              <ul class="case__tags">
+                <template data-i18n-list="@tags"><li data-i18n="@"></li></template>
+              </ul>
+            </li>
+          </template>
+        </ul>
+        <p class="work__more" data-i18n="work.more"></p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="process.num"></p>
+          <h2 id="process-title" data-i18n="process.title" data-split></h2>
+          <p class="section-lead" data-i18n="process.lead"></p>
+        </header>
+        <ol class="steps">
+          <template data-i18n-list="process.steps">
+            <li class="step">
+              <span class="step__num">{nn}</span>
+              <h3 data-i18n="@title"></h3>
+              <p data-i18n="@text"></p>
+              <span class="step__duration" data-i18n="@duration"></span>
+            </li>
+          </template>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="pricing.num"></p>
+          <h2 id="pricing-title" data-i18n="pricing.title" data-split></h2>
+          <p class="section-lead" data-i18n="pricing.lead"></p>
+        </header>
+        <div class="plans">
+          <template data-i18n-list="pricing.plans">
+            <article class="plan" data-featured="{@featured}">
+              <p class="plan__badge" data-i18n="@badge"></p>
+              <h3 class="plan__name" data-i18n="@name"></h3>
+              <p class="plan__text" data-i18n="@text"></p>
+              <p class="plan__price" data-i18n="@price"></p>
+              <p class="plan__term" data-i18n="@term"></p>
+              <ul class="plan__features">
+                <template data-i18n-list="@features"><li data-i18n="@"></li></template>
+              </ul>
+              <a class="btn plan__cta" href="#contact" data-magnetic><span data-i18n="pricing.cta"></span><svg class="arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+            </article>
+          </template>
+        </div>
+        <p class="pricing__note" data-i18n="pricing.note"></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="section-num" data-i18n="faq.num"></p>
+          <h2 id="faq-title" data-i18n="faq.title" data-split></h2>
+          <p class="section-lead" data-i18n="faq.lead"></p>
+        </header>
+        <div class="faq">
+          <template data-i18n-list="faq.items">
+            <details class="faq__item" name="faq">
+              <summary><span class="faq__num" aria-hidden="true">{nn}</span><span class="faq__q" data-i18n="@q"></span><span class="faq__icon" aria-hidden="true"></span></summary>
+              <div class="faq__a"><p data-i18n="@a"></p></div>
+            </details>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <header class="sec-head sec-head--wide">
+          <p class="section-num" data-i18n="contact.num"></p>
+          <h2 id="contact-title" data-i18n="contact.title" data-split></h2>
+        </header>
+        <div class="contact__body">
+          <div class="contact__aside">
+            <p class="section-lead contact__lead" data-i18n="contact.lead"></p>
+            <dl class="contact__details">
+              <template data-i18n-list="contact.details">
+                <div><dt data-i18n="@label"></dt><dd data-i18n="@value"></dd></div>
+              </template>
+            </dl>
+          </div>
+
+          <form class="form" data-dz-form novalidate>
+            <div class="field field--text">
+              <label for="f-name" data-i18n="contact.form.name.label"></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" data-i18n-attr="placeholder:contact.form.name.placeholder">
+              <p id="f-name-err" class="field__error" data-error-for="name" hidden></p>
+            </div>
+            <div class="field field--text">
+              <label for="f-contact" data-i18n="contact.form.contact.label"></label>
+              <input id="f-contact" name="contact" type="text" autocomplete="email" required aria-describedby="f-contact-err" data-i18n-attr="placeholder:contact.form.contact.placeholder">
+              <p id="f-contact-err" class="field__error" data-error-for="contact" hidden></p>
+            </div>
+            <fieldset class="field chips">
+              <legend data-i18n="contact.form.type.label"></legend>
+              <div class="chips__list">
+                <template data-i18n-list="contact.form.type.options">
+                  <label class="chip"><input type="checkbox" name="type" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+                </template>
+              </div>
+            </fieldset>
+            <fieldset class="field chips">
+              <legend data-i18n="contact.form.budget.label"></legend>
+              <div class="chips__list">
+                <template data-i18n-list="contact.form.budget.options">
+                  <label class="chip"><input type="radio" name="budget" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+                </template>
+              </div>
+            </fieldset>
+            <div class="field field--text">
+              <label for="f-message" data-i18n="contact.form.message.label"></label>
+              <textarea id="f-message" name="message" rows="3" data-i18n-attr="placeholder:contact.form.message.placeholder"></textarea>
+            </div>
+            <div class="form__submit">
+              <button class="btn btn--primary btn--wide" type="submit" data-magnetic><span data-i18n="contact.form.submit"></span><svg class="arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></button>
+              <p class="form__privacy" data-i18n="contact.form.privacy"></p>
+            </div>
+
+            <div class="form__success" data-form-success hidden role="status">
+              <p class="form__success-title" data-i18n="contact.form.success.title"></p>
+              <p class="form__success-text" data-i18n="contact.form.success.text" data-i18n-vars="{}"></p>
+              <p class="form__success-note" data-i18n="contact.form.success.note"></p>
+              <button type="button" class="btn btn--secondary" data-form-reset data-magnetic><span data-i18n="contact.form.success.again"></span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer__lead">
+        <p class="footer__tagline" data-i18n="brand.tagline" data-split data-stop="end"></p>
+        <p class="footer__endnote" data-i18n="x.minimalism.end"></p>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="brand__name" data-i18n="brand.name"></p>
+          <p class="footer__descriptor" data-i18n="brand.descriptor"></p>
+        </div>
+
+        <section class="colophon" aria-labelledby="colophon-title">
+          <h2 id="colophon-title" data-i18n="footer.colophon"></h2>
+          <p class="colophon__desc"><strong data-i18n="style.name"></strong> — <span data-i18n="style.desc"></span></p>
+          <dl class="colophon__specs">
+            <div><dt data-i18n="footer.fontsLabel"></dt><dd data-i18n="style.fonts"></dd></div>
+            <div><dt data-i18n="hub.compare.motion"></dt><dd data-i18n="style.motion"></dd></div>
+            <div><dt data-i18n="hub.compare.signature"></dt><dd data-i18n="style.signature"></dd></div>
+          </dl>
+          <p class="colophon__label" data-i18n="footer.paletteLabel"></p>
+          <ul class="swatches">
+            <template data-i18n-list="style.palette">
+              <li style="--swatch: {@hex}"><span class="swatch" aria-hidden="true"></span><span class="swatch__name" data-i18n="@name"></span> <code>{@hex}</code></li>
+            </template>
+          </ul>
+          <p class="colophon__line"><span class="colophon__len" data-i18n="x.minimalism.lineLength" data-i18n-vars='{"len":"—"}'></span></p>
+        </section>
+
+        <div class="footer__links">
+          <a href="index.html" data-dz-go="hub" data-magnetic><span data-i18n="footer.hub"></span><svg class="arr" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+          <a href="#top" data-magnetic><span data-i18n="footer.toTop"></span><svg class="arr arr--up" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+          <p class="footer__rights" data-i18n="footer.rights"></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/core/content.js"></script>
+  <script src="assets/minimalism/copy.js"></script>
+  <script src="assets/core/core.js"></script>
+  <script src="assets/minimalism/script.js"></script>
+</body>
+</html>

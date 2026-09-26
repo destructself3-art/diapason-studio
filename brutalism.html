@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ru" data-style="brutalism">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="style.metaTitle">Диапазон — брутализм</title>
+  <meta name="description" data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F2F0EB'/%3E%3Crect x='7' y='7' width='22' height='22' fill='%23000'/%3E%3Crect x='3' y='3' width='22' height='22' fill='%23CCFF00' stroke='%23000' stroke-width='3'/%3E%3C/svg%3E">
+  <!-- boot: read the reveal origin left by the previous page (must stay inline, in <head>) -->
+  <script>(function(d){try{var o=JSON.parse(sessionStorage.getItem('diapason.vt')||'null');sessionStorage.removeItem('diapason.vt');if(o){d.documentElement.style.setProperty('--dz-vt-x',o.x+'px');d.documentElement.style.setProperty('--dz-vt-y',o.y+'px');}}catch(e){}})(document)</script>
+  <link rel="stylesheet" href="assets/core/core.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=IBM+Plex+Mono:wght@400;500;700&amp;display=swap">
+  <link rel="stylesheet" href="assets/brutalism/style.css">
+</head>
+<body>
+  <a class="dz-skip" href="#main" data-i18n="a11y.skip"></a>
+
+  <div class="page">
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#top">
+        <span class="brand__name" data-i18n="brand.name"></span>
+        <span class="brand__descriptor" data-i18n="brand.descriptor"></span>
+      </a>
+      <nav class="site-nav" id="site-nav" data-i18n-attr="aria-label:a11y.menu">
+        <ul>
+          <template data-i18n-list="nav.items">
+            <li><a href="{@href}"><span class="site-nav__num" aria-hidden="true">{nn}</span><span data-i18n="@label"></span></a></li>
+          </template>
+        </ul>
+        <a class="site-nav__cta" href="#contact" data-i18n="nav.cta"></a>
+      </nav>
+      <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang">
+        <button type="button" data-set-lang="ru" data-i18n="lang.ru" data-i18n-attr="aria-label:lang.ruFull"></button>
+        <button type="button" data-set-lang="en" data-i18n="lang.en" data-i18n-attr="aria-label:lang.enFull"></button>
+      </div>
+      <a class="header-cta" href="#contact" data-i18n="nav.cta"></a>
+      <p class="header-now" aria-hidden="true"><span class="header-now__num">00</span><span class="header-now__label" data-header-now></span></p>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__box" aria-hidden="true"></span><span class="menu-btn__label" data-i18n="a11y.menu"></span></button>
+      <span class="progress" aria-hidden="true"><span class="progress__bar"></span></span>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section id="top" class="hero" data-sticker-zone>
+        <div class="hero__meta">
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow"></p>
+          <p class="cap hero__index" data-i18n="x.brutalism.styleIndex"></p>
+          <p class="cap hero__size" aria-hidden="true"><span data-i18n="x.brutalism.sizeLabel"></span>: <span class="hero__size-val" data-hl-sizes>—</span></p>
+        </div>
+
+        <div class="hero__stage">
+          <h1 class="hero__title">
+            <span class="hl-src" data-i18n="hero.title"></span>
+            <span class="hl-src hero__this" data-i18n="style.hero"></span>
+            <span class="hl" data-hl="hero.title" aria-hidden="true"></span>
+            <span class="hl hl--slab" data-hl="style.hero" aria-hidden="true"></span>
+          </h1>
+          <div class="hero__stickers">
+            <!-- desktop: the hatched spot the burst leaves behind when it is peeled off -->
+            <span class="hero__slot" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><polygon points="50,2 58,16 72,6 74,23 91,19 85,35 99,42 86,52 97,66 80,69 83,86 66,81 60,97 50,85 40,97 34,81 17,86 20,69 3,66 14,52 1,42 15,35 9,19 26,23 28,6 42,16"/></svg></span>
+            <!-- DOM order = the reading order of the mobile/tablet sticker strip (keyboard follows it) -->
+            <span class="sticker sticker--h2" data-sticker tabindex="0" role="button" aria-describedby="br-sticker-help" data-i18n-attr="aria-roledescription:x.brutalism.sticker.role" style="--r:-7deg; --si:1"><span class="sticker__face"><span class="sticker__text" data-i18n="x.brutalism.stickers.1"></span></span></span>
+            <span class="sticker sticker--white sticker--h3" data-sticker tabindex="0" role="button" aria-describedby="br-sticker-help" data-i18n-attr="aria-roledescription:x.brutalism.sticker.role" style="--r:3deg; --si:2"><span class="sticker__face"><span class="sticker__text" data-i18n="x.brutalism.stickers.2"></span></span></span>
+            <span class="sticker sticker--black sticker--h4" data-sticker tabindex="0" role="button" aria-describedby="br-sticker-help" data-i18n-attr="aria-roledescription:x.brutalism.sticker.role" style="--r:-4deg; --si:3"><span class="sticker__face"><span class="sticker__text" data-i18n="x.brutalism.stickers.3"></span><span class="sticker__arrow" aria-hidden="true">↘</span></span></span>
+            <span class="sticker sticker--burst sticker--h1" data-sticker tabindex="0" role="button" aria-describedby="br-sticker-help" data-i18n-attr="aria-roledescription:x.brutalism.sticker.role" style="--r:9deg; --si:0"><span class="sticker__face"><svg class="sticker__burst" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="none"><polygon points="50,2 58,16 72,6 74,23 91,19 85,35 99,42 86,52 97,66 80,69 83,86 66,81 60,97 50,85 40,97 34,81 17,86 20,69 3,66 14,52 1,42 15,35 9,19 26,23 28,6 42,16"/></svg><span class="sticker__text" data-i18n="x.brutalism.stickers.0"></span></span></span>
+          </div>
+        </div>
+
+        <div class="hero__grid">
+          <div class="hero__cell hero__cell--lead">
+            <p class="hero__lead" data-i18n="hero.lead"></p>
+            <p class="cap hero__note" data-i18n="x.brutalism.heroNote"></p>
+          </div>
+          <div class="hero__cell hero__actions">
+            <a class="btn btn--primary" href="#contact" data-i18n="hero.ctaPrimary"></a>
+            <a class="btn btn--secondary" href="#work" data-i18n="hero.ctaSecondary"></a>
+          </div>
+          <div class="hero__cell hero__tools">
+            <p class="cap sticker-help" id="br-sticker-help" data-i18n="x.brutalism.sticker.help"></p>
+            <button class="reset-btn" type="button" data-sticker-reset disabled><span data-i18n="x.brutalism.sticker.reset"></span></button>
+          </div>
+        </div>
+
+        <dl class="stats">
+          <template data-i18n-list="hero.stats">
+            <div class="stat"><dt data-i18n="@value"></dt><dd data-i18n="@label"></dd></div>
+          </template>
+        </dl>
+        <p class="hero__hint"><span class="hero__hint-arrow" aria-hidden="true">↓</span><span data-i18n="hero.switchHint"></span></p>
+      </section>
+
+      <div class="ticker" data-ticker>
+        <div class="ticker__viewport" aria-hidden="true">
+          <div class="ticker__track">
+            <ul class="ticker__group"><template data-i18n-list="x.brutalism.marquee"><li data-i18n="@"></li></template></ul>
+            <ul class="ticker__group"><template data-i18n-list="x.brutalism.marquee"><li data-i18n="@"></li></template></ul>
+          </div>
+        </div>
+        <button class="ticker__toggle" type="button" data-ticker-toggle><span class="ticker__icon" aria-hidden="true"></span><span class="ticker__label" data-i18n="x.brutalism.ticker.pause"></span></button>
+      </div>
+
+      <!-- SERVICES -->
+      <section id="services" class="sec" aria-labelledby="services-title">
+        <header class="sec-head sec-head--acid">
+          <p class="section-num" data-i18n="services.num"></p>
+          <div class="sec-head__main">
+            <p class="cap"><span data-i18n="x.brutalism.section"></span> 01/06 — <span data-i18n="nav.items.0.label"></span></p>
+            <h2 id="services-title" data-i18n="services.title"></h2>
+          </div>
+          <p class="section-lead" data-i18n="services.lead"></p>
+        </header>
+        <ol class="services">
+          <template data-i18n-list="services.items">
+            <li class="service" data-reveal>
+              <span class="service__num">{nn}</span>
+              <h3 data-i18n="@title"></h3>
+              <p data-i18n="@text"></p>
+              <span class="service__meta"><span data-i18n="@meta"></span></span>
+            </li>
+          </template>
+        </ol>
+      </section>
+
+      <!-- WORK -->
+      <section id="work" class="sec" aria-labelledby="work-title">
+        <!-- the one head that breaks the system: a poster fitted by the headline engine, the number slapped on as a sticker -->
+        <header class="sec-head sec-head--poster">
+          <p class="section-num" data-i18n="work.num"></p>
+          <div class="sec-head__main">
+            <p class="cap"><span data-i18n="x.brutalism.section"></span> 02/06 — <span data-i18n="nav.items.1.label"></span></p>
+            <h2 id="work-title"><span class="hl-src" data-i18n="work.title"></span><span class="hl hl--poster" data-hl="work.title" aria-hidden="true" data-reveal></span></h2>
+          </div>
+          <p class="section-lead" data-i18n="work.lead"></p>
+        </header>
+        <ul class="cases">
+          <template data-i18n-list="work.items">
+            <li class="case" data-motif="{@motif}" data-reveal>
+              <div class="case__art" aria-hidden="true"></div>
+              <p class="case__cap"><span class="case__fig"><span data-i18n="x.brutalism.fig"></span> {nn} — <span class="case__slug"></span></span><span class="case__year" data-i18n="work.year"></span></p>
+              <div class="case__body">
+                <p class="case__type" data-i18n="@type"></p>
+                <h3 class="case__name" data-i18n="@name"></h3>
+                <p class="case__text" data-i18n="@text"></p>
+                <ul class="case__tags">
+                  <template data-i18n-list="@tags"><li data-i18n="@"></li></template>
+                </ul>
+              </div>
+            </li>
+          </template>
+        </ul>
+        <div class="work__foot">
+          <p class="work__more" data-i18n="work.more"></p>
+          <p class="cap work__note" data-i18n="x.brutalism.workNote"></p>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process" class="sec sec--dark" aria-labelledby="process-title">
+        <header class="sec-head sec-head--white">
+          <p class="section-num" data-i18n="process.num"></p>
+          <div class="sec-head__main">
+            <p class="cap"><span data-i18n="x.brutalism.section"></span> 03/06 — <span data-i18n="nav.items.2.label"></span></p>
+            <h2 id="process-title" data-i18n="process.title"></h2>
+          </div>
+          <p class="section-lead" data-i18n="process.lead"></p>
+        </header>
+        <ol class="steps">
+          <template data-i18n-list="process.steps">
+            <li class="step" data-reveal>
+              <span class="step__num">{nn}</span>
+              <h3 data-i18n="@title"></h3>
+              <p data-i18n="@text"></p>
+              <span class="step__duration" data-i18n="@duration"></span>
+            </li>
+          </template>
+        </ol>
+      </section>
+
+      <div class="ticker ticker--acid ticker--reverse" data-ticker>
+        <div class="ticker__viewport" aria-hidden="true">
+          <div class="ticker__track">
+            <ul class="ticker__group"><template data-i18n-list="x.brutalism.marquee2"><li data-i18n="@"></li></template></ul>
+            <ul class="ticker__group"><template data-i18n-list="x.brutalism.marquee2"><li data-i18n="@"></li></template></ul>
+          </div>
+        </div>
+        <button class="ticker__toggle" type="button" data-ticker-toggle><span class="ticker__icon" aria-hidden="true"></span><span class="ticker__label" data-i18n="x.brutalism.ticker.pause"></span></button>
+      </div>
+
+      <!-- PRICING -->
+      <section id="pricing" class="sec" aria-labelledby="pricing-title" data-sticker-zone>
+        <header class="sec-head sec-head--acid">
+          <p class="section-num" data-i18n="pricing.num"></p>
+          <div class="sec-head__main">
+            <p class="cap"><span data-i18n="x.brutalism.section"></span> 04/06 — <span data-i18n="nav.items.3.label"></span></p>
+            <h2 id="pricing-title" data-i18n="pricing.title"></h2>
+          </div>
+          <p class="section-lead" data-i18n="pricing.lead"></p>
+        </header>
+        <div class="plans">
+          <template data-i18n-list="pricing.plans">
+            <article class="plan" data-featured="{@featured}" data-reveal>
+              <div class="plan__head">
+                <p class="cap plan__index"><span data-i18n="x.brutalism.plan"></span> {nn}/03</p>
+                <p class="plan__badge" data-i18n="@badge"></p>
+              </div>
+              <h3 class="plan__name" data-i18n="@name"></h3>
+              <p class="plan__text" data-i18n="@text"></p>
+              <div class="sticker-slot">
+                <div class="sticker sticker--price" data-sticker tabindex="0" role="button" aria-describedby="br-price-help" data-i18n-attr="aria-roledescription:x.brutalism.sticker.role">
+                  <div class="sticker__face">
+                    <span class="sticker__tag" data-i18n="x.brutalism.priceTag"></span>
+                    <p class="plan__price" data-i18n="@price"></p>
+                  </div>
+                </div>
+              </div>
+              <p class="plan__term" data-i18n="@term"></p>
+              <ul class="plan__features">
+                <template data-i18n-list="@features"><li data-i18n="@"></li></template>
+              </ul>
+              <a class="btn plan__cta" href="#contact" data-i18n="pricing.cta"></a>
+            </article>
+          </template>
+        </div>
+        <div class="pricing__foot">
+          <p class="pricing__note" data-i18n="pricing.note"></p>
+          <div class="pricing__tools">
+            <p class="cap sticker-help" id="br-price-help" data-i18n="x.brutalism.priceHint"></p>
+            <button class="reset-btn" type="button" data-sticker-reset disabled><span data-i18n="x.brutalism.sticker.reset"></span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="sec" aria-labelledby="faq-title">
+        <header class="sec-head sec-head--black sec-head--mirror">
+          <p class="section-num" data-i18n="faq.num"></p>
+          <div class="sec-head__main">
+            <p class="cap"><span data-i18n="x.brutalism.section"></span> 05/06 — <span data-i18n="nav.items.4.label"></span></p>
+            <h2 id="faq-title" data-i18n="faq.title"></h2>
+          </div>
+          <p class="section-lead" data-i18n="faq.lead"></p>
+        </header>
+        <div class="faq">
+          <template data-i18n-list="faq.items">
+            <details class="faq__item" name="faq">
+              <summary><span class="faq__num" aria-hidden="true">{nn}</span><span class="faq__q" data-i18n="@q"></span><span class="faq__icon" aria-hidden="true"></span></summary>
+              <p class="faq__a" data-i18n="@a"></p>
+            </details>
+          </template>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="sec" aria-labelledby="contact-title">
+        <header class="sec-head sec-head--acid">
+          <p class="section-num" data-i18n="contact.num"></p>
+          <div class="sec-head__main">
+            <p class="cap"><span data-i18n="x.brutalism.section"></span> 06/06 — <span data-i18n="nav.items.5.label"></span></p>
+            <h2 id="contact-title" data-i18n="contact.title"></h2>
+          </div>
+          <p class="section-lead" data-i18n="contact.lead"></p>
+        </header>
+        <div class="contact">
+          <div class="contact__side">
+            <dl class="contact__details">
+              <template data-i18n-list="contact.details">
+                <div><dt data-i18n="@label"></dt><dd data-i18n="@value"></dd></div>
+              </template>
+            </dl>
+            <div class="contact__sign">
+              <p class="contact__write" data-fit-line aria-hidden="true"><span data-i18n="x.brutalism.write"></span></p>
+              <span class="contact__arrow" aria-hidden="true"></span>
+              <p class="cap contact__req" data-i18n="x.brutalism.required"></p>
+            </div>
+          </div>
+
+          <div class="contact__form">
+            <form class="form" data-dz-form novalidate>
+              <div class="field">
+                <label for="f-name" class="is-req" data-i18n="contact.form.name.label"></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" data-i18n-attr="placeholder:contact.form.name.placeholder">
+                <p id="f-name-err" class="field__error" data-error-for="name" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-contact" class="is-req" data-i18n="contact.form.contact.label"></label>
+                <input id="f-contact" name="contact" type="text" autocomplete="email" required aria-describedby="f-contact-err" data-i18n-attr="placeholder:contact.form.contact.placeholder">
+                <p id="f-contact-err" class="field__error" data-error-for="contact" hidden></p>
+              </div>
+              <fieldset class="field chips">
+                <legend data-i18n="contact.form.type.label"></legend>
+                <template data-i18n-list="contact.form.type.options">
+                  <label class="chip"><input type="checkbox" name="type" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+                </template>
+              </fieldset>
+              <fieldset class="field chips">
+                <legend data-i18n="contact.form.budget.label"></legend>
+                <template data-i18n-list="contact.form.budget.options">
+                  <label class="chip chip--radio"><input type="radio" name="budget" data-i18n-attr="value:@"><span data-i18n="@"></span></label>
+                </template>
+              </fieldset>
+              <div class="field">
+                <label for="f-message" data-i18n="contact.form.message.label"></label>
+                <textarea id="f-message" name="message" rows="4" data-i18n-attr="placeholder:contact.form.message.placeholder"></textarea>
+              </div>
+              <div class="form__submit">
+                <button class="btn btn--primary btn--submit" type="submit"><span data-i18n="contact.form.submit"></span></button>
+                <p class="form__privacy" data-i18n="contact.form.privacy"></p>
+              </div>
+
+              <div class="form__success" data-form-success hidden role="status">
+                <p class="form__stamp" aria-hidden="true" data-i18n="x.brutalism.stamp"></p>
+                <p class="form__success-title" data-i18n="contact.form.success.title"></p>
+                <p class="form__success-text" data-i18n="contact.form.success.text" data-i18n-vars="{}"></p>
+                <p class="form__success-note" data-i18n="contact.form.success.note"></p>
+                <button type="button" class="btn btn--primary" data-form-reset data-i18n="contact.form.success.again"></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="brand__name footer__word" data-fit-line><span data-i18n="brand.name"></span></p>
+      <div class="footer__grid">
+        <div class="footer__cell footer__brand">
+          <p class="footer__tagline" data-i18n="brand.tagline"></p>
+          <p class="cap footer__made" data-i18n="x.brutalism.madeWith"></p>
+        </div>
+        <section class="footer__cell colophon" aria-labelledby="colophon-title">
+          <h2 id="colophon-title" data-i18n="footer.colophon"></h2>
+          <p class="colophon__row"><strong data-i18n="style.name"></strong> — <span data-i18n="style.desc"></span></p>
+          <p class="colophon__row"><span class="colophon__label" data-i18n="footer.fontsLabel"></span>: <span class="colophon__fonts" data-i18n="style.fonts"></span></p>
+          <p class="colophon__label" data-i18n="footer.paletteLabel"></p>
+          <ul class="swatches">
+            <template data-i18n-list="style.palette">
+              <li style="--swatch: {@hex}"><span class="swatch" aria-hidden="true"></span><span class="swatch__name" data-i18n="@name"></span> <code>{@hex}</code></li>
+            </template>
+          </ul>
+        </section>
+        <div class="footer__cell footer__links">
+          <a class="footer__link" href="index.html" data-dz-go="hub"><span data-i18n="footer.hub"></span></a>
+          <a class="footer__link" href="#top"><span data-i18n="footer.toTop"></span></a>
+        </div>
+        <p class="footer__cell footer__rights" data-i18n="footer.rights"></p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/core/content.js"></script>
+  <script src="assets/brutalism/copy.js"></script>
+  <script src="assets/core/core.js"></script>
+  <script src="assets/brutalism/script.js"></script>
+</body>
+</html>

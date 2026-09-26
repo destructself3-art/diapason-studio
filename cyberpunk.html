@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ru" data-style="cyberpunk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="style.metaTitle">Диапазон — киберпанк</title>
+  <meta name="description" data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#08070D">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M0 0h24l8 8v24H8L0 24z' fill='%2308070D'/%3E%3Cpath d='M8 7h10l6 6v6l-6 6H8z' fill='none' stroke='%2300F0FF' stroke-width='2.6'/%3E%3Cpath d='M3 28h9' stroke='%23FF2E88' stroke-width='2.4'/%3E%3Crect x='25' y='3' width='4' height='4' fill='%23F5F200'/%3E%3C/svg%3E">
+  <!-- boot: read the reveal origin left by the previous page (must stay inline, in <head>) -->
+  <script>(function(d){try{var o=JSON.parse(sessionStorage.getItem('diapason.vt')||'null');sessionStorage.removeItem('diapason.vt');if(o){d.documentElement.style.setProperty('--dz-vt-x',o.x+'px');d.documentElement.style.setProperty('--dz-vt-y',o.y+'px');}}catch(e){}})(document)</script>
+  <!-- cyberpunk: decide before first paint whether the boot sequence / hero intro will run (never in preview or reduced motion) -->
+  <script>(function(r){try{if(/[?&]preview=1(&|$)/.test(location.search)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('cp-intro');if(!sessionStorage.getItem('cp.booted'))r.classList.add('cp-boot');}catch(e){}})(document.documentElement)</script>
+  <link rel="stylesheet" href="assets/core/core.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Tektur:wdth,wght@75..100,400..900&display=swap">
+  <link rel="stylesheet" href="assets/cyberpunk/style.css">
+</head>
+<body>
+  <a class="dz-skip" href="#main" data-i18n="a11y.skip"></a>
+
+  <!-- BOOT SEQUENCE (once per session, skippable) -->
+  <div class="boot" data-boot aria-hidden="true">
+    <div class="boot__inner">
+      <p class="boot__head"><span class="boot__os"><span data-i18n="brand.name"></span>//OS 5.0.5</span><span class="boot__sep"></span><span data-i18n="x.cyberpunk.boot.title"></span><span class="boot__mem">MEM 0x7F3A2C · 05/05</span></p>
+      <ol class="boot__log" data-boot-log></ol>
+      <div class="boot__meter">
+        <span class="boot__label" data-i18n="x.cyberpunk.boot.loading"></span>
+        <span class="boot__pct" data-boot-pct>000%</span>
+        <span class="boot__bar"><i data-boot-bar></i></span>
+      </div>
+      <p class="boot__granted glitch" data-i18n="x.cyberpunk.boot.granted"></p>
+      <p class="boot__skip" data-i18n="x.cyberpunk.boot.skip"></p>
+    </div>
+  </div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" data-scramble-off>
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M1 1h22l8 8v22H9l-8-8z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 8h9l6 6v4l-6 6H9z" fill="none" stroke="var(--cyan)" stroke-width="2.4"/><path d="M4 28h7" stroke="var(--magenta)" stroke-width="2.4"/></svg>
+      <span class="brand__text">
+        <span class="brand__name" data-i18n="brand.name"></span>
+        <span class="brand__descriptor" data-i18n="brand.descriptor"></span>
+      </span>
+    </a>
+    <nav class="site-nav" id="site-nav" data-i18n-attr="aria-label:a11y.menu">
+      <ul>
+        <template data-i18n-list="nav.items">
+          <li><a href="{@href}" data-scramble><span class="site-nav__num" aria-hidden="true">{nn}</span><span class="site-nav__label" data-i18n="@label"></span></a></li>
+        </template>
+      </ul>
+    </nav>
+    <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang">
+      <button type="button" data-set-lang="ru" data-i18n="lang.ru" data-i18n-attr="aria-label:lang.ruFull"></button>
+      <button type="button" data-set-lang="en" data-i18n="lang.en" data-i18n-attr="aria-label:lang.enFull"></button>
+    </div>
+    <a class="header-cta btn btn--primary btn--sm" href="#contact" data-scramble><span data-i18n="nav.cta"></span><span class="btn__ico" aria-hidden="true">&gt;&gt;</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-btn>
+      <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="menu-btn__label" data-i18n="a11y.menu"></span>
+    </button>
+    <!-- compact HUD readout for small screens -->
+    <div class="sector-bar" aria-hidden="true">
+      <span class="sector-bar__txt"><span data-i18n="x.cyberpunk.hud.sector"></span> <b data-hud-num>01/07</b> <i>//</i> <span data-hud-name></span></span>
+      <span class="sector-bar__pct" data-hud-pct>000%</span>
+      <span class="sector-bar__progress"><i data-hud-progress></i></span>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="hero__bg" aria-hidden="true"><span class="hero__grid"></span><span class="hero__haze"></span><span class="hero__scan"></span></div>
+
+      <div class="holo" data-holo aria-hidden="true">
+        <canvas class="holo__canvas" width="600" height="700"></canvas>
+        <span class="holo__frame"><i></i><i></i><i></i><i></i></span>
+        <div class="holo__meta holo__meta--top">
+          <p class="holo__label holo__label--obj"><b>OBJ.440</b> <span data-i18n="x.cyberpunk.holo.obj"></span></p>
+          <p class="holo__label holo__label--freq" data-i18n="x.cyberpunk.holo.freq"></p>
+        </div>
+        <div class="holo__meta holo__meta--bot" data-holo-bot>
+          <p class="holo__label holo__label--amp"><span data-i18n="x.cyberpunk.holo.amp"></span> <b data-holo-amp>0.00</b></p>
+          <p class="holo__hint" data-holo-hint data-i18n="x.cyberpunk.holo.hintMouse"></p>
+        </div>
+      </div>
+
+      <div class="hero__content wrap">
+        <div class="hero__main">
+          <div class="hero__top">
+            <p class="hero__eyebrow"><span class="hero__tag" aria-hidden="true">SYS://05</span><span data-i18n="hero.eyebrow"></span></p>
+            <p class="hero__status" aria-hidden="true"><i class="pulse-dot"></i><span data-i18n="x.cyberpunk.status.online"></span><span class="hero__status-sep">//</span><span data-i18n="x.cyberpunk.status.node"></span>&nbsp;05</p>
+          </div>
+          <h1 class="hero__title">
+            <span class="hero__line glitch" data-i18n="hero.title"></span>
+            <span class="hero__this glitch" data-i18n="style.hero"></span>
+          </h1>
+          <div class="hero__below">
+            <p class="hero__lead" data-i18n="hero.lead"></p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="#contact" data-scramble><span data-i18n="hero.ctaPrimary"></span><span class="btn__ico" aria-hidden="true">&gt;&gt;</span></a>
+              <a class="btn btn--secondary btn--lg" href="#work" data-scramble><span data-i18n="hero.ctaSecondary"></span><span class="btn__ico" aria-hidden="true">&#8600;</span></a>
+            </div>
+            <div class="hero__hint">
+              <div class="hero__keys" role="group" data-i18n-attr="aria-label:a11y.dock">
+                <a class="hero__key" href="brutalism.html" data-dz-go="brutalism" data-style-key="brutalism" data-i18n-attr="aria-label:styles.brutalism.name"><kbd>1</kbd></a>
+                <a class="hero__key" href="glassmorphism.html" data-dz-go="glassmorphism" data-style-key="glassmorphism" data-i18n-attr="aria-label:styles.glassmorphism.name"><kbd>2</kbd></a>
+                <a class="hero__key" href="retro-90s.html" data-dz-go="retro-90s" data-style-key="retro-90s" data-i18n-attr="aria-label:styles.retro-90s.name"><kbd>3</kbd></a>
+                <a class="hero__key" href="minimalism.html" data-dz-go="minimalism" data-style-key="minimalism" data-i18n-attr="aria-label:styles.minimalism.name"><kbd>4</kbd></a>
+                <a class="hero__key is-current" href="cyberpunk.html" data-dz-go="cyberpunk" data-style-key="cyberpunk" aria-current="page" data-i18n-attr="aria-label:styles.cyberpunk.name"><kbd>5</kbd></a>
+              </div>
+              <p class="hero__hint-text" data-i18n="hero.switchHint"></p>
+            </div>
+          </div>
+        </div>
+        <dl class="stats">
+          <template data-i18n-list="hero.stats">
+            <div class="stat"><dt data-i18n="@value"></dt><dd data-i18n="@label"></dd></div>
+          </template>
+        </dl>
+      </div>
+    </section>
+
+    <!-- hazard tape: the service list as a moving band (decorative duplicate of #services) -->
+    <div class="tape" aria-hidden="true">
+      <div class="tape__band tape__band--back"><div class="tape__track" data-tape="back"></div></div>
+      <div class="tape__band tape__band--front"><div class="tape__track" data-tape="front"></div></div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="sec sec--services" aria-labelledby="services-title">
+      <div class="wrap sec__split">
+        <div class="sec-head sec-head--sticky">
+          <div class="sec-head__rule" data-rv><p class="section-num" data-i18n="services.num"></p><span class="sec-head__line" aria-hidden="true"></span><span class="sec-head__code" aria-hidden="true">0x01F4</span></div>
+          <h2 id="services-title" class="sec-title glitch" data-i18n="services.title" data-decrypt data-rv></h2>
+          <p class="section-lead" data-i18n="services.lead" data-rv></p>
+          <p class="sec-head__meta" aria-hidden="true" data-rv><span data-i18n="x.cyberpunk.services.installed"></span><b>06</b></p>
+        </div>
+        <ol class="services">
+          <template data-i18n-list="services.items">
+            <li class="service" data-rv data-lock>
+              <span class="service__num">{nn}</span>
+              <div class="service__body">
+                <h3 data-i18n="@title"></h3>
+                <p data-i18n="@text"></p>
+              </div>
+              <div class="service__side">
+                <span class="service__eta" aria-hidden="true" data-i18n="x.cyberpunk.services.eta"></span>
+                <span class="service__meta" data-i18n="@meta"></span>
+                <span class="service__bar" aria-hidden="true"></span>
+              </div>
+            </li>
+          </template>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="sec sec--work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
+          <div class="sec-head__rule" data-rv><p class="section-num" data-i18n="work.num"></p><span class="sec-head__line" aria-hidden="true"></span><span class="sec-head__code" aria-hidden="true">0x02A9</span></div>
+          <h2 id="work-title" class="sec-title glitch" data-i18n="work.title" data-decrypt data-rv></h2>
+          <p class="section-lead" data-i18n="work.lead" data-rv></p>
+        </div>
+        <ul class="cases">
+          <template data-i18n-list="work.items">
+            <li class="case" data-motif="{@motif}" data-rv="panel">
+              <article class="case__shell cut" data-lock>
+                <div class="case__head" aria-hidden="true">
+                  <span class="case__id" data-i18n="x.cyberpunk.shards.{i}.id"></span>
+                  <span class="case__status"><i></i><span data-i18n="x.cyberpunk.shard.status"></span><b data-i18n="x.cyberpunk.shards.{i}.status"></b></span>
+                </div>
+                <div class="case__art" aria-hidden="true"></div>
+                <div class="case__info">
+                  <p class="case__type" data-i18n="@type"></p>
+                  <h3 class="case__name" data-i18n="@name"></h3>
+                  <p class="case__text" data-i18n="@text"></p>
+                  <ul class="case__tags">
+                    <template data-i18n-list="@tags"><li data-i18n="@"></li></template>
+                  </ul>
+                  <div class="case__foot"><span class="case__year" data-i18n="work.year"></span><span class="case__barcode" aria-hidden="true"></span><span class="case__hex" aria-hidden="true">0x{nn}F3</span></div>
+                </div>
+              </article>
+            </li>
+          </template>
+        </ul>
+        <p class="work__more" data-rv><span class="work__prompt" aria-hidden="true">&gt;</span><span data-i18n="work.more"></span><span class="caret" aria-hidden="true"></span></p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="sec sec--process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="sec-head sec-head--wide">
+          <div class="sec-head__rule" data-rv><p class="section-num" data-i18n="process.num"></p><span class="sec-head__line" aria-hidden="true"></span><span class="sec-head__code" aria-hidden="true"><span class="up" data-i18n="x.cyberpunk.process.pipeline"></span> · 4/4</span></div>
+          <h2 id="process-title" class="sec-title glitch" data-i18n="process.title" data-decrypt data-rv></h2>
+          <p class="section-lead" data-i18n="process.lead" data-rv></p>
+        </div>
+        <div class="pipeline" data-pipeline>
+          <div class="pipeline__trace" aria-hidden="true"><i class="pipeline__fill"></i><i class="pipeline__packet"></i></div>
+          <!-- 2×2 layout (tablet): the same trace routed as a PCB circuit 01 → 02 ↴ 03 → 04 (path built in script.js) -->
+          <svg class="pipeline__circuit" aria-hidden="true" focusable="false">
+            <defs><linearGradient id="cp-circuit-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF2E88"/><stop offset="1" stop-color="#00F0FF"/></linearGradient></defs>
+            <path class="pipeline__c-base"/>
+            <path class="pipeline__c-glow" pathLength="1"/>
+            <path class="pipeline__c-fill" pathLength="1"/>
+          </svg>
+          <i class="pipeline__c-packet" aria-hidden="true"></i>
+          <ol class="steps">
+            <template data-i18n-list="process.steps">
+              <li class="step" data-rv>
+                <span class="step__node" aria-hidden="true"></span>
+                <p class="step__label"><span data-i18n="x.cyberpunk.process.stage"></span><span class="step__duration" data-i18n="@duration"></span></p>
+                <span class="step__num step__big">{nn}</span>
+                <h3 data-i18n="@title"></h3>
+                <p data-i18n="@text"></p>
+              </li>
+            </template>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="sec sec--pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
+          <div class="sec-head__rule" data-rv><p class="section-num" data-i18n="pricing.num"></p><span class="sec-head__line" aria-hidden="true"></span><span class="sec-head__code" aria-hidden="true">0x04C2</span></div>
+          <h2 id="pricing-title" class="sec-title glitch" data-i18n="pricing.title" data-decrypt data-rv></h2>
+          <p class="section-lead" data-i18n="pricing.lead" data-rv></p>
+        </div>
+        <div class="plans">
+          <template data-i18n-list="pricing.plans">
+            <article class="plan" data-featured="{@featured}" data-rv="panel">
+              <div class="plan__shell cut" data-lock>
+                <div class="plan__top">
+                  <p class="plan__tier" aria-hidden="true"><span data-i18n="x.cyberpunk.tier"></span> <b>0{n}</b></p>
+                  <p class="plan__badge" data-i18n="@badge"></p>
+                </div>
+                <h3 class="plan__name" data-i18n="@name"></h3>
+                <p class="plan__text" data-i18n="@text"></p>
+                <p class="plan__price" data-i18n="@price"></p>
+                <p class="plan__term-row"><span class="plan__eta" aria-hidden="true" data-i18n="x.cyberpunk.eta"></span><span class="plan__term" data-i18n="@term"></span></p>
+                <ul class="plan__features">
+                  <template data-i18n-list="@features"><li data-i18n="@"></li></template>
+                </ul>
+                <a class="btn plan__cta" href="#contact" data-scramble><span data-i18n="pricing.cta"></span><span class="btn__ico" aria-hidden="true">&gt;&gt;</span></a>
+              </div>
+            </article>
+          </template>
+        </div>
+        <p class="pricing__note" data-rv><span aria-hidden="true">!!</span> <span data-i18n="pricing.note"></span></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="sec sec--faq" aria-labelledby="faq-title">
+      <div class="wrap sec__split">
+        <div class="sec-head sec-head--sticky">
+          <div class="sec-head__rule" data-rv><p class="section-num" data-i18n="faq.num"></p><span class="sec-head__line" aria-hidden="true"></span><span class="sec-head__code" aria-hidden="true">0x05E1</span></div>
+          <h2 id="faq-title" class="sec-title glitch" data-i18n="faq.title" data-decrypt data-rv></h2>
+          <p class="section-lead" data-i18n="faq.lead" data-rv></p>
+          <span class="sec-head__big" aria-hidden="true" data-i18n="faq.num"></span>
+        </div>
+        <div class="term cut" data-rv="panel">
+          <div class="term__bar" aria-hidden="true"><span class="term__path">diapason@faq:~$</span><span class="term__meta"><i class="pulse-dot"></i><span data-i18n="x.cyberpunk.faq.session"></span> · 06 <span data-i18n="x.cyberpunk.faq.count"></span></span></div>
+          <div class="faq">
+            <template data-i18n-list="faq.items">
+              <details class="faq__item" name="faq">
+                <summary><span class="faq__prompt" aria-hidden="true">&gt;</span><span class="faq__q" data-i18n="@q"></span><span class="faq__state" aria-hidden="true"></span></summary>
+                <div class="faq__a"><p data-i18n="@a"></p></div>
+              </details>
+            </template>
+          </div>
+          <p class="term__idle" aria-hidden="true"><span>&gt;</span><span class="caret"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="sec sec--contact" aria-labelledby="contact-title">
+      <div class="wrap sec__split sec__split--contact">
+        <div class="sec-head">
+          <div class="sec-head__rule" data-rv><p class="section-num" data-i18n="contact.num"></p><span class="sec-head__line" aria-hidden="true"></span><span class="sec-head__code" aria-hidden="true">0x06FF</span></div>
+          <h2 id="contact-title" class="sec-title glitch" data-i18n="contact.title" data-decrypt data-rv></h2>
+          <p class="section-lead" data-i18n="contact.lead" data-rv></p>
+          <p class="contact__channel" aria-hidden="true" data-rv><i class="pulse-dot"></i><span data-i18n="x.cyberpunk.contact.channel"></span> · 05</p>
+          <dl class="contact__details" data-rv>
+            <template data-i18n-list="contact.details">
+              <div><dt data-i18n="@label"></dt><dd data-i18n="@value"></dd></div>
+            </template>
+          </dl>
+        </div>
+
+        <form class="form cut" data-dz-form novalidate data-rv="panel">
+          <div class="form__bar" aria-hidden="true">
+            <span class="form__chan"><i class="pulse-dot"></i><span data-i18n="x.cyberpunk.form.channel"></span></span>
+            <span class="form__enc">AES-256 · <span data-i18n="x.cyberpunk.form.enc"></span></span>
+            <span class="form__progress"><i></i></span>
+          </div>
+          <div class="form__body" data-form-body>
+            <p class="form__idle" aria-hidden="true"><span>&gt;</span> <span data-i18n="x.cyberpunk.form.idle"></span><span class="caret"></span></p>
+            <div class="field field--line">
+              <label for="f-name" data-i18n="contact.form.name.label"></label>
+              <div class="field__line">
+                <span class="field__prompt" aria-hidden="true">$</span>
+                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" data-i18n-attr="placeholder:contact.form.name.placeholder">
+                <span class="field__caret" aria-hidden="true"></span>
+              </div>
+              <p id="f-name-err" class="field__error" data-error-for="name" hidden></p>
+            </div>
+            <div class="field field--line">
+              <label for="f-contact" data-i18n="contact.form.contact.label"></label>
+              <div class="field__line">
+                <span class="field__prompt" aria-hidden="true">$</span>
+                <input id="f-contact" name="contact" type="text" autocomplete="email" required aria-describedby="f-contact-err" data-i18n-attr="placeholder:contact.form.contact.placeholder">
+                <span class="field__caret" aria-hidden="true"></span>
+              </div>
+              <p id="f-contact-err" class="field__error" data-error-for="contact" hidden></p>
+            </div>
+            <fieldset class="field chips chips--check">
+              <legend data-i18n="contact.form.type.label"></legend>
+              <template data-i18n-list="contact.form.type.options">
+                <label class="chip"><input type="checkbox" name="type" data-i18n-attr="value:@"><span class="chip__box" aria-hidden="true"></span><span data-i18n="@"></span></label>
+              </template>
+            </fieldset>
+            <fieldset class="field chips chips--radio">
+              <legend data-i18n="contact.form.budget.label"></legend>
+              <template data-i18n-list="contact.form.budget.options">
+                <label class="chip"><input type="radio" name="budget" data-i18n-attr="value:@"><span class="chip__box" aria-hidden="true"></span><span data-i18n="@"></span></label>
+              </template>
+            </fieldset>
+            <div class="field field--area">
+              <label for="f-message" data-i18n="contact.form.message.label"></label>
+              <div class="field__line">
+                <span class="field__prompt" aria-hidden="true">$</span>
+                <textarea id="f-message" name="message" rows="4" data-i18n-attr="placeholder:contact.form.message.placeholder"></textarea>
+              </div>
+            </div>
+            <div class="form__submit-row">
+              <button class="btn btn--primary btn--lg form__submit" type="submit"><span data-i18n="contact.form.submit"></span><span class="btn__ico" aria-hidden="true">&gt;&gt;</span></button>
+              <p class="form__privacy" data-i18n="contact.form.privacy"></p>
+            </div>
+          </div>
+
+          <div class="form__success" data-form-success hidden role="status">
+            <p class="form__done glitch" aria-hidden="true" data-i18n="x.cyberpunk.form.done"></p>
+            <p class="form__success-title" data-i18n="contact.form.success.title"></p>
+            <p class="form__success-text" data-i18n="contact.form.success.text" data-i18n-vars="{}"></p>
+            <p class="form__packet" aria-hidden="true"><span data-i18n="x.cyberpunk.form.packet"></span> <b data-packet>#0000-0000</b> · 100%</p>
+            <p class="form__success-note" data-i18n="contact.form.success.note"></p>
+            <button type="button" class="btn btn--secondary" data-form-reset data-i18n="contact.form.success.again"></button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer__mark">
+        <p class="brand__name footer__word glitch" data-i18n="brand.name"></p>
+        <p class="footer__tagline" data-i18n="brand.tagline"></p>
+      </div>
+      <div class="footer__grid">
+        <section class="colophon" aria-labelledby="colophon-title">
+          <h2 id="colophon-title" data-i18n="footer.colophon"></h2>
+          <p class="colophon__style"><strong data-i18n="style.name"></strong> — <span data-i18n="style.desc"></span></p>
+          <p class="colophon__fonts"><span data-i18n="footer.fontsLabel"></span>: <span data-i18n="style.fonts"></span></p>
+          <p class="colophon__label" data-i18n="footer.paletteLabel"></p>
+          <ul class="swatches">
+            <template data-i18n-list="style.palette">
+              <li style="--swatch: {@hex}"><span class="swatch" aria-hidden="true"></span><span data-i18n="@name"></span> <code>{@hex}</code></li>
+            </template>
+          </ul>
+        </section>
+        <div class="footer__links">
+          <a class="footer__link" href="index.html" data-dz-go="hub" data-scramble><span class="footer__arrow" aria-hidden="true">&lt;&lt;</span><span data-i18n="footer.hub"></span></a>
+          <a class="footer__link" href="#top" data-scramble><span class="footer__arrow" aria-hidden="true">&#8593;</span><span data-i18n="footer.toTop"></span></a>
+        </div>
+        <div class="footer__meta">
+          <p class="footer__eot" aria-hidden="true"><span data-i18n="x.cyberpunk.footer.eot"></span><span class="caret"></span></p>
+          <p class="footer__rights" data-i18n="footer.rights"></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- screen FX: scanlines, grain, vignette -->
+  <div class="fx" aria-hidden="true"><span class="fx__noise"></span><span class="fx__lines"></span><span class="fx__vignette"></span></div>
+
+  <!-- HUD: pointer-events:none; bottom centre stays free for the style dock -->
+  <div class="hud" data-hud aria-hidden="true">
+    <span class="hud__corner hud__corner--tl"></span><span class="hud__corner hud__corner--tr"></span>
+    <span class="hud__corner hud__corner--bl"></span><span class="hud__corner hud__corner--br"></span>
+    <span class="hud__xline"></span><span class="hud__yline"></span>
+    <span class="hud__rc hud__rc--tl"></span><span class="hud__rc hud__rc--tr"></span><span class="hud__rc hud__rc--bl"></span><span class="hud__rc hud__rc--br"></span>
+    <span class="hud__tag" data-hud-tag><b data-hud-lock></b><span data-hud-xy>X 0000 · Y 0000</span></span>
+    <div class="hud__readout hud__readout--l">
+      <p class="hud__row"><span class="hud__glyph"></span><span data-i18n="x.cyberpunk.hud.sector"></span> <b data-hud-num>01/07</b> <i>//</i> <span data-hud-name></span></p>
+      <p class="hud__row"><span class="hud__segs" data-hud-segs><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span data-i18n="x.cyberpunk.hud.depth"></span> <b data-hud-pct>000%</b></p>
+    </div>
+    <div class="hud__readout hud__readout--r">
+      <p class="hud__row"><span data-i18n="x.cyberpunk.hud.time"></span> <b class="hud__clock" data-hud-clock>00:00:00</b></p>
+      <p class="hud__row"><span data-hud-pos>X 0000 · Y 0000</span></p>
+    </div>
+    <div class="hud__ruler"><i data-hud-marker></i></div>
+  </div>
+
+  <script src="assets/core/content.js"></script>
+  <script src="assets/cyberpunk/copy.js"></script>
+  <script src="assets/core/core.js"></script>
+  <script src="assets/cyberpunk/script.js"></script>
+</body>
+</html>

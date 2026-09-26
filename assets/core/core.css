@@ -1,0 +1,191 @@
+/*
+ * Diapason core styles — the neutral "studio frame" shared by every page:
+ * the style dock, the cross-page reveal, skip link and a few utilities.
+ * Style pages must not restyle anything prefixed with .dz-dock.
+ */
+
+:root {
+  --dz-dock-space: 96px; /* reserve this much at the bottom of your footer so the dock never covers content */
+  --dz-dock-bg: rgba(17, 17, 19, 0.94);
+  --dz-dock-fg: #f4f4f2;
+  --dz-dock-muted: rgba(244, 244, 242, 0.56);
+  --dz-dock-line: rgba(255, 255, 255, 0.14);
+  --dz-dock-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --dz-dock-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- cross-document reveal between styles (Chrome 126+, Safari 18.2+) ---------- */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) {
+  animation: dz-reveal 760ms cubic-bezier(0.72, 0, 0.18, 1) both;
+}
+@keyframes dz-reveal {
+  from { clip-path: circle(0 at var(--dz-vt-x, 50%) var(--dz-vt-y, 100%)); }
+  to { clip-path: circle(150vmax at var(--dz-vt-x, 50%) var(--dz-vt-y, 100%)); }
+}
+.dz-dock { view-transition-name: dz-dock; }
+::view-transition-group(dz-dock) { animation-duration: 0s; }
+::view-transition-old(dz-dock) { display: none; }
+::view-transition-new(dz-dock) { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
+/* ---------- style dock ---------- */
+.dz-dock {
+  position: fixed;
+  left: 50%;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 2147483000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: calc(100vw - 20px);
+  padding: 5px;
+  border: 1px solid var(--dz-dock-line);
+  border-radius: 999px;
+  background: var(--dz-dock-bg);
+  color: var(--dz-dock-fg);
+  font: 500 13px/1 var(--dz-dock-font);
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.25);
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+.dz-dock *,
+.dz-dock *::before,
+.dz-dock *::after { box-sizing: border-box; }
+
+.dz-dock a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 13px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.dz-dock a:hover { background: rgba(255, 255, 255, 0.09); }
+.dz-dock a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.dz-dock__hub { color: var(--dz-dock-muted) !important; padding-right: 12px !important; }
+.dz-dock__hub:hover { color: var(--dz-dock-fg) !important; }
+.dz-dock__hub svg { flex: none; }
+
+.dz-dock__list {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 0 0 0 4px;
+  border-left: 1px solid var(--dz-dock-line);
+  list-style: none;
+}
+.dz-dock__list li { margin: 0; padding: 0; }
+
+.dz-dock__num {
+  position: relative;
+  font: 500 11px/1 var(--dz-dock-mono);
+  color: var(--dz-dock-muted);
+  padding-left: 12px;
+}
+.dz-dock__num::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--dz-accent, #fff);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+.dz-dock__item.is-current { background: var(--dz-dock-fg); color: #111; }
+.dz-dock__item.is-current:hover { background: var(--dz-dock-fg); }
+.dz-dock__item.is-current .dz-dock__num { color: rgba(17, 17, 17, 0.6); }
+.dz-dock__item.is-current .dz-dock__num::before { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35); }
+
+.dz-dock__keys {
+  white-space: nowrap;
+  padding: 0 10px 0 6px;
+  font: 500 11px/1 var(--dz-dock-mono);
+  color: var(--dz-dock-muted);
+}
+
+@media (max-width: 1100px) {
+  .dz-dock__keys { display: none; }
+}
+@media (max-width: 860px) {
+  .dz-dock__item:not(.is-current) .dz-dock__name { display: none; }
+  .dz-dock__hub-label { display: none; }
+  .dz-dock a { padding: 0 11px; }
+  .dz-dock__hub { padding-right: 11px !important; }
+}
+@media (max-width: 400px) {
+  .dz-dock { gap: 2px; padding: 4px; }
+  .dz-dock a { padding: 0 9px; gap: 6px; min-height: 40px; }
+  .dz-dock__num { padding-left: 10px; }
+}
+@media (max-width: 360px) {
+  .dz-dock { gap: 1px; padding: 3px; }
+  .dz-dock a { padding: 0 8px; gap: 5px; }
+  .dz-dock__hub { padding-right: 8px !important; }
+  .dz-dock__list { padding-left: 2px; }
+  .dz-dock__num { padding-left: 9px; }
+  .dz-dock__item.is-current .dz-dock__name { display: none; }
+}
+@media (hover: none) {
+  .dz-dock__keys { display: none; }
+}
+@media print {
+  .dz-dock { display: none; }
+}
+
+/* keep keyboard focus and scrollIntoView clear of the fixed dock (WCAG 2.4.11) */
+html.dz-has-dock { scroll-padding-bottom: calc(var(--dz-dock-space) + 16px); }
+
+/* ---------- utilities every page may use ---------- */
+.dz-skip {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 2147483001;
+  padding: 10px 16px;
+  background: #111;
+  color: #fff;
+  font: 600 14px/1.2 var(--dz-dock-font);
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+.dz-skip:focus { transform: none; outline: 2px solid #fff; outline-offset: 2px; }
+
+.dz-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- preview mode (inside the hub's live thumbnails) ---------- */
+.dz-preview,
+.dz-preview body { scroll-behavior: auto !important; }
+.dz-preview body { cursor: default !important; }
+.dz-preview ::-webkit-scrollbar { display: none; }
+.dz-preview { scrollbar-width: none; }
